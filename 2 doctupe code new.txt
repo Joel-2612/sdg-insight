@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Development Goals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .sdg-color-1 { background-color: #E5243B; }
+        .sdg-color-2 { background-color: #DDA63A; }
+        .sdg-color-3 { background-color: #4C9F38; }
+        .sdg-color-4 { background-color: #C5192D; }
+        .sdg-color-5 { background-color: #FF3A21; }
+        .sdg-color-6 { background-color: #26BDE2; }
+        .sdg-color-7 { background-color: #FCC30B; }
+        .sdg-color-8 { background-color: #A21942; }
+        .sdg-color-9 { background-color: #FD6925; }
+        .sdg-color-10 { background-color: #DD1367; }
+        .sdg-color-11 { background-color: #FD9D24; }
+        .sdg-color-12 { background-color: #BF8B2E; }
+        .sdg-color-13 { background-color: #3F7E44; }
+        .sdg-color-14 { background-color: #0A97D9; }
+        .sdg-color-15 { background-color: #56C02B; }
+        .sdg-color-16 { background-color: #00689D; }
+        .sdg-color-17 { background-color: #19486A; }
+        .sdg-text-color-1 { color: #E5243B; }
+        .sdg-text-color-2 { color: #DDA63A; }
+        .sdg-text-color-3 { color: #4C9F38; }
+        .sdg-text-color-4 { color: #C5192D; }
+        .sdg-text-color-5 { color: #FF3A21; }
+        .sdg-text-color-6 { color: #26BDE2; }
+        .sdg-text-color-7 { color: #FCC30B; }
+        .sdg-text-color-8 { color: #A21942; }
+        .sdg-text-color-9 { color: #FD6925; }
+        .sdg-text-color-10 { color: #DD1367; }
+        .sdg-text-color-11 { color: #FD9D24; }
+        .sdg-text-color-12 { color: #BF8B2E; }
+        .sdg-text-color-13 { color: #3F7E44; }
+        .sdg-text-color-14 { color: #0A97D9; }
+        .sdg-text-color-15 { color: #56C02B; }
+        .sdg-text-color-16 { color: #00689D; }
+        .sdg-text-color-17 { color: #19486A; }
+        .sdg-sidebar-number {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+        }
+        #sdg-nav a.active {
+            background-color: #2d3748;
+            font-weight: bold;
+        }
+        .country-flag {
+            width: 40px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .stat-box {
+            background-color: #2d3748;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #90cdf4;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #a0aec0;
+            margin-top: 0.25rem;
+        }
+        .sdg-title-banner {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .country-card {
+            background-color: #2d3748;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform 0.2s ease-in-out;
+            color: #e2e8f0;
+        }
+        .country-card:hover {
+            transform: translateY(-3px);
+        }
+        .country-info {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #4a5568;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        .progress-bar {
+            height: 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 20px;
+            transition: width 0.5s ease-in-out;
+        }
+        .image-display-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-display-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .prose p, .prose h2, .prose h3, .prose h4, .prose ul, .prose li {
+            color: #e2e8f0;
+        }
+        .prose .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .prose .text-gray-700 {
+            color: #a0aec0;
+        }
+        .prose .bg-gray-100 {
+            background-color: #2d3748;
+        }
+        .prose .border-blue-200 {
+            border-color: #4a5568;
+        }
+        .prose .text-blue-800 {
+            color: #90cdf4;
+        }
+        .prose .text-blue-700 {
+            color: #a0aec0;
+        }
+        .progress-section-normal {
+            background-color: #f0f4f8;
+            border-color: #e2e8f0;
+            color: #333;
+        }
+        .progress-section-normal h3 {
+            color: #2c5282;
+        }
+        .progress-section-normal p {
+            color: #4a5568;
+        }
+        .progress-section-normal .progress-bar-normal {
+            background-color: #4299e1;
+        }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #2d3748;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .modal-close-button:hover {
+            color: #cbd5e0;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 text-white p-6 shadow-lg rounded-b-lg">
+        <h1 class="text-4xl font-bold text-center">Sustainable Development Goals (SDGs)</h1>
+        <p class="text-center mt-2 text-lg">A blueprint for a better and more sustainable future for all.</p>
+    </header>
+
+    <div class="flex flex-1 flex-col lg:flex-row">
+        <nav class="w-full lg:w-64 bg-gray-900 text-white p-4 shadow-xl lg:min-h-[calc(100vh-8rem)] overflow-y-auto rounded-lg lg:m-4">
+            <h2 class="text-2xl font-semibold mb-4 border-b border-gray-700 pb-3">The 17 Goals</h2>
+            <ul id="sdg-nav">
+                <li class="mb-2">
+                    <a href="#" data-sdg="home" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200">
+                        <span class="sdg-sidebar-number bg-blue-500">🏠</span>
+                        <span class="font-medium">Overview</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="flex-1 p-6 lg:p-8 bg-gray-800 shadow-xl rounded-lg lg:m-4">
+            <div id="content-display" class="prose max-w-none">
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-gray-900 text-white text-center p-4 mt-auto rounded-t-lg">
+        <p>&copy; 2025 Sustainable Development Goals. All rights reserved. Made by - Joel Martin, Abraham Daniel Nithin, Christopher John</p>
+    </footer>
+
+    <div id="country-details-modal" class="modal-overlay hidden">
+        <div class="modal-content w-full lg:w-1/2">
+            <button class="modal-close-button" onclick="hideCountryDetailsModal()">✖</button>
+            <h3 id="modal-country-name" class="text-3xl font-bold mb-4 text-white flex items-center">
+                <img id="modal-country-flag" src="" alt="Country Flag" class="country-flag mr-4">
+                <span></span>
+            </h3>
+            <h4 id="modal-sdg-title" class="text-xl font-semibold mb-4 text-gray-300"></h4>
+            <div id="modal-country-info" class="text-gray-200 leading-relaxed"></div>
+        </div>
+    </div>
+
+    <script>
+        const sdgData = [
+            {
+                id: 1,
+                title: "No Poverty",
+                color: "sdg-color-1",
+                description: "Ending poverty in all its forms everywhere is not merely an economic objective but a fundamental requirement for a peaceful and prosperous world. It involves ensuring social protection for the poor and vulnerable, increasing access to basic services, and supporting people affected by conflict and climate-related disasters.",
+                countries: [
+                    { name: "China", progress: 85 },
+                    { name: "Vietnam", progress: 70 },
+                    { name: "Rwanda", progress: 60 },
+                    { name: "South Korea", progress: 90 },
+                    { name: "Chile", progress: 75 },
+                    { name: "India", progress: 55 },
+                    { name: "Germany", progress: 95 }
+                ],
+                statistics: [
+                    { number: "~809.9M", label: "People in extreme poverty (2025)" },
+                    { number: "1.3B", label: "People lifted out of poverty since 1980" },
+                    { number: "2030", label: "Target year for ending extreme poverty" }
+                ],
+                initiatives: [
+                    "Conditional Cash Transfer Programs in Brazil and Mexico.",
+                    "Microfinance institutions supporting small businesses in developing countries.",
+                    "Universal Basic Income trials in various countries (e.g., Finland, Canada).",
+                    "Debt relief initiatives for highly indebted poor countries."
+                ],
+                essay: {
+                    title: "Goal 1: No Poverty 🚫",
+                    content: `
+                        <p class="mb-4">Poverty, in all its forms and dimensions, including extreme poverty, is the greatest global challenge and an indispensable requirement for sustainable development. The aim of SDG 1 is to eradicate extreme poverty for all people everywhere by 2030, currently measured as people living on less than $2.15 a day.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Eradicating Extreme Poverty:</b> Reducing at least by half the proportion of men, women and children of all ages living in poverty in all its dimensions according to national definitions.</li>
+                            <li><b>Social Protection Systems:</b> Implementing nationally appropriate social protection systems and measures for all, including floors, and by 2030 achieve substantial coverage of the poor and the vulnerable.</li>
+                            <li><b>Equal Rights and Resources:</b> Ensuring that all men and women, in particular the poor and the vulnerable, have equal rights to economic resources, as well as access to basic services, ownership and control over land and other forms of property, inheritance, natural resources, appropriate new technology and financial services, including microfinance.</li>
+                            <li><b>Building Resilience:</b> Building the resilience of the poor and those in vulnerable situations and reduce their exposure and vulnerability to climate-related extreme events and other economic, social and environmental shocks and disasters.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Globally, around 809.9 million people are projected to be in extreme poverty by 2025, though significant progress has been made in recent decades.</li>
+                            <li>Over 1.3 billion people have been lifted out of poverty since 1980, primarily due to economic growth in countries like China and India.</li>
+                            <li>The COVID-19 pandemic and recent conflicts have reversed some progress, pushing millions back into poverty.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Inequality, conflict, climate change, and economic shocks continue to hinder progress. Many vulnerable populations lack access to essential services and resources, making them susceptible to falling back into poverty.</p>
+                    `
+                },
+                progress: { worldwide: 65 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/buildings.jpg",
+                countryDetails: {
+                    "Germany": {
+                        title: "Germany's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">Germany has made significant strides in poverty reduction through a robust social welfare system, strong labor market policies, and comprehensive social protection measures. The country's commitment to social justice is reflected in its policies aimed at ensuring a dignified life for all citizens.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Strong Social Security Net:</b> Germany provides extensive social security, including unemployment benefits, health insurance, pension schemes, and long-term care insurance. These systems act as a crucial buffer against poverty for vulnerable groups.</li>
+                                <li><b>Minimum Wage:</b> The introduction of a statutory national minimum wage has significantly improved the income situation for low-wage earners, reducing in-work poverty.</li>
+                                <li><b>Education and Training:</b> Germany invests heavily in education and vocational training, providing pathways to skilled employment and reducing long-term unemployment, especially among youth.</li>
+                                <li><b>Family Support:</b> Policies such as child benefits (Kindergeld), parental leave (Elterngeld), and affordable childcare aim to support families and prevent child poverty.</li>
+                                <li><b>Housing Assistance:</b> Housing benefits (Wohngeld) are provided to low-income households to ensure access to affordable housing.</li>
+                                <li><b>Integration of Refugees and Migrants:</b> Programs focused on language acquisition, vocational training, and labor market integration help new arrivals become self-sufficient and avoid poverty.</li>
+                                <li><b>European and Global Cooperation:</b> Germany actively participates in international efforts to combat poverty, contributing significantly to Official Development Assistance (ODA) and promoting fair trade.</li>
+                            </ul>
+                            <p class="mt-4">While Germany has achieved a high level of social protection, challenges remain, particularly concerning relative poverty, income inequality, and the integration of certain marginalized groups. Continuous efforts are made to adapt social policies to evolving economic and demographic landscapes.</p>
+                        `
+                    },
+                    "China": {
+                        title: "China's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">China has achieved remarkable success in poverty alleviation, lifting hundreds of millions of people out of extreme poverty over the past few decades. This has been a central focus of its national development strategy.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Targeted Poverty Alleviation:</b> China implemented a highly centralized and targeted poverty alleviation campaign, identifying specific poor households and villages and providing tailored support.</li>
+                                <li><b>Industrial Development:</b> Promoting industries in poor areas, such as agriculture, tourism, and small-scale manufacturing, to create local employment and income opportunities.</li>
+                                <li><b>Relocation Programs:</b> Relocating populations from ecologically fragile or resource-poor areas to new settlements with better infrastructure and economic prospects.</li>
+                                <li><b>Education and Healthcare:</b> Significant investments in improving access to education and healthcare in rural and impoverished regions to break the intergenerational cycle of poverty.</li>
+                                <li><b>Infrastructure Development:</b> Building roads, power grids, and communication networks in remote areas to connect them to markets and services.</li>
+                                <li><b>Financial Support:</b> Providing direct financial subsidies, micro-loans, and agricultural support to poor farmers and entrepreneurs.</li>
+                            </ul>
+                            <p class="mt-4">China's approach has been characterized by strong government leadership, massive resource mobilization, and a focus on precise targeting. While extreme poverty has largely been eradicated, the country now faces challenges related to relative poverty, regional disparities, and ensuring the sustainability of poverty alleviation gains.</p>
+                        `
+                    },
+                    "India": {
+                        title: "India's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">India has implemented various programs and policies to address poverty, which remains a significant challenge despite economic growth. Efforts focus on social safety nets, rural development, and employment generation.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA):</b> Guarantees 100 days of wage employment in a financial year to adult members of rural households willing to do unskilled manual work, providing a crucial safety net.</li>
+                                <li><b>Pradhan Mantri Jan Dhan Yojana (PMJDY):</b> A national mission for financial inclusion, ensuring access to financial services like banking, savings, credit, insurance, and pensions, especially for the poor.</li>
+                                <li><b>Pradhan Mantri Awas Yojana (PMAY):</b> Aims to provide affordable housing for all by 2022, addressing housing poverty in both urban and rural areas.</li>
+                                <li><b>National Food Security Act (NFSA):</b> Provides subsidized food grains to approximately two-thirds of the population, ensuring food security for vulnerable households.</li>
+                                <li><b>Skill India Mission:</b> Focuses on vocational training and skill development to enhance employability and income-generating opportunities for the youth.</li>
+                            </ul>
+                            <p class="mt-4">Despite these initiatives, India continues to grapple with challenges such as high population density, informal sector employment, regional disparities, and the impact of climate change on agricultural livelihoods. Sustained efforts are needed to achieve the "No Poverty" goal by 2030.</p>
+                        `
+                    },
+                    "Vietnam": {
+                        title: "Vietnam's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">Vietnam has achieved remarkable success in poverty reduction over the past few decades through rapid economic growth, rural development programs, and targeted social policies.</p>
+
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Economic Reforms:</b> Market-oriented reforms have significantly boosted employment and incomes.</li>
+                                <li><b>Rural Development:</b> Investments in rural infrastructure, agriculture, and transportation have improved living standards.</li>
+                                <li><b>Education Access:</b> Expanded educational opportunities help break the cycle of poverty.</li>
+                                <li><b>Healthcare Programs:</b> Improved healthcare accessibility has reduced economic burdens on low-income families.</li>
+                                <li><b>Targeted Assistance:</b> Government programs support ethnic minorities and disadvantaged communities.</li>
+                                <li><b>Job Creation:</b> Manufacturing and service industries have generated millions of jobs.</li>
+                                <li><b>Social Protection:</b> Welfare programs provide assistance to vulnerable households.</li>
+                            </ul>
+
+                            <p class="mt-4">Vietnam continues working to reduce regional inequalities and ensure sustainable poverty reduction across all communities.</p>
+                        `
+                    },
+                    "Rwanda": {
+                        title: "Rwanda's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">Rwanda has made significant progress in reducing poverty through economic reforms, community development initiatives, and improved access to education and healthcare.</p>
+
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Community Development:</b> Local development programs empower communities to improve livelihoods.</li>
+                                <li><b>Agricultural Growth:</b> Investments in agriculture have increased food security and farmer incomes.</li>
+                                <li><b>Universal Healthcare:</b> Community-based health insurance improves healthcare accessibility.</li>
+                                <li><b>Education Expansion:</b> Greater access to education supports long-term poverty reduction.</li>
+                                <li><b>Women's Empowerment:</b> Gender-inclusive policies contribute to economic growth.</li>
+                                <li><b>Infrastructure Development:</b> Improved roads and services stimulate economic opportunities.</li>
+                                <li><b>Social Safety Nets:</b> Programs provide support to vulnerable households.</li>
+                            </ul>
+
+                            <p class="mt-4">Rwanda continues to focus on inclusive growth, job creation, and reducing poverty in rural regions.</p>
+                        `
+                    },
+                    "South Korea": {
+                        title: "South Korea's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">South Korea transformed from a low-income country into one of the world's leading economies through industrialization, education, and strong social development policies.</p>
+
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Economic Growth:</b> Rapid industrial development created employment opportunities and improved incomes.</li>
+                                <li><b>Education Investment:</b> High-quality education has contributed significantly to economic mobility.</li>
+                                <li><b>Universal Healthcare:</b> National health insurance reduces financial hardship from medical expenses.</li>
+                                <li><b>Employment Programs:</b> Government initiatives support workforce participation and skill development.</li>
+                                <li><b>Social Welfare:</b> Assistance programs help elderly citizens and low-income households.</li>
+                                <li><b>Technology and Innovation:</b> Innovation-driven industries create sustainable economic growth.</li>
+                                <li><b>Housing Support:</b> Programs assist families in accessing affordable housing.</li>
+                            </ul>
+
+                            <p class="mt-4">South Korea continues addressing income inequality and supporting vulnerable populations while maintaining strong economic growth.</p>
+                        `
+                    },
+                    "Chile": {
+                        title: "Chile's Approach to No Poverty (SDG 1)",
+                        description: `
+                            <p class="mb-4">Chile has significantly reduced poverty through economic development, social protection programs, and investments in education and healthcare.</p>
+
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Economic Stability:</b> Sustained economic growth has improved living standards across the country.</li>
+                                <li><b>Social Protection Programs:</b> Government assistance supports low-income families and vulnerable groups.</li>
+                                <li><b>Healthcare Access:</b> Expanded healthcare services improve quality of life and reduce poverty-related risks.</li>
+                                <li><b>Education Initiatives:</b> Investments in education increase opportunities for economic advancement.</li>
+                                <li><b>Employment Opportunities:</b> Labor market reforms encourage job creation and workforce participation.</li>
+                                <li><b>Housing Programs:</b> Affordable housing initiatives improve living conditions for many families.</li>
+                                <li><b>Rural Development:</b> Targeted programs address poverty in remote and underserved areas.</li>
+                            </ul>
+
+                            <p class="mt-4">Chile continues working to reduce inequality and ensure that economic growth benefits all segments of society.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 2,
+                title: "Zero Hunger",
+                color: "sdg-color-2",
+                description: "This goal aims to end hunger, achieve food security and improved nutrition, and promote sustainable agriculture. It calls for better access to nutritious food, ending all forms of malnutrition, and doubling the agricultural agricultural productivity and incomes of small-scale food producers.",
+                countries: [
+                    { name: "Brazil", progress: 70 },
+                    { name: "Thailand", progress: 75 },
+                    { name: "Ghana", progress: 65 },
+                    { name: "Vietnam", progress: 80 },
+                    { name: "Ethiopia", progress: 50 },
+                    { name: "Malawi", progress: 45 }
+                ],
+                statistics: [
+                    { number: "735M", label: "Undernourished people (2025)" },
+                    { number: "9.1%", label: "World population facing hunger" },
+                    { number: "30%", label: "Food lost or wasted globally" }
+                ],
+                initiatives: [
+                    "School feeding programs.",
+                    "Support for smallholder farmers and sustainable agricultural practices.",
+                    "Genetic diversity preservation of seeds and cultivated plants.",
+                    "Global food assistance programs."
+                ],
+                essay: {
+                    title: "Goal 2: Zero Hunger 🍔",
+                    content: `
+                        <p class="mb-4">Achieving Zero Hunger means ending all forms of hunger and malnutrition by 2030. This involves promoting sustainable agriculture, improving food security, and ensuring access to sufficient, nutritious food for everyone, especially the most vulnerable.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>End Hunger:</b> Ensuring access by all people, in particular the poor and people in vulnerable situations, including infants, to safe, nutritious and sufficient food all year round.</li>
+                            <li><b>End Malnutrition:</b> Ending all forms of malnutrition, including achieving the internationally agreed targets on stunting and wasting in children under 5 years of age, and addressing the nutritional needs of adolescent girls, pregnant and lactating women and older persons.</li>
+                            <li><b>Sustainable Agriculture:</b> Doubling the agricultural productivity and incomes of small-scale food producers, in particular women, indigenous peoples, family farmers, pastoralists and fishers, including through secure and equal access to land, other productive resources and inputs, knowledge, financial services, markets and opportunities for value addition and non-farm employment.</li>
+                            <li><b>Genetic Diversity:</b> Maintaining the genetic diversity of seeds, cultivated plants and farmed and domesticated animals and their related wild species.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Around 735 million people are projected to be undernourished by 2025, a significant increase from pre-pandemic levels.</li>
+                            <li>Globally, 9.1% of the world population faces hunger.</li>
+                            <li>Approximately 30% of food produced globally is lost or wasted, exacerbating food insecurity.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Climate change, conflict, economic slowdowns, and persistent inequalities are major drivers of hunger. Ensuring resilient food systems and equitable distribution remains a significant challenge.</p>
+                    `
+                },
+                progress: { worldwide: 55 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/rural.jpg",
+                countryDetails: {
+                    "Brazil": {
+                        title: "Brazil's Approach to Zero Hunger (SDG 2)",
+                        description: `
+                            <p class="mb-4">Brazil has been recognized for its successful efforts in combating hunger and food insecurity, particularly through its "Fome Zero" (Zero Hunger) program initiated in the early 2000s.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Conditional Cash Transfers (Bolsa Família):</b> This program provided financial aid to poor families on the condition that their children attended school and received health check-ups, directly impacting food security and nutrition.</li>
+                                <li><b>Food Acquisition Program (PAA):</b> The PAA bought food directly from small-scale family farmers and distributed it to people in need, supporting both producers and consumers.</li>
+                                <li><b>National School Feeding Program (PNAE):</b> Ensured that all public school students received healthy meals, improving nutrition and school attendance.</li>
+                                <li><b>Food Banks and Community Kitchens:</b> Initiatives to reduce food waste and redistribute surplus food to vulnerable populations.</li>
+                                <li><b>Support for Family Farming:</b> Policies and credit lines to strengthen family farming, which is crucial for domestic food production.</li>
+                            </ul>
+                            <p class="mt-4">Brazil's comprehensive approach, combining social protection with agricultural support, led to significant reductions in hunger and poverty. However, recent economic and political challenges have posed threats to these gains, emphasizing the need for sustained commitment.</p>
+                        `
+                    },
+                    "Thailand": {
+                        title: "Thailand's Approach to Zero Hunger (SDG 2)",
+                        description: `
+                            <p class="mb-4">Thailand has made significant progress in achieving food security and improving nutrition, particularly through its focus on sustainable agriculture and rural development.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Sufficiency Economy Philosophy:</b> Promotes a balanced and sustainable development approach, encouraging self-reliance and resilience in agriculture.</li>
+                                <li><b>Agricultural Sector Development:</b> Investment in irrigation, research, and extension services to boost agricultural productivity and diversification.</li>
+                                <li><b>Food Safety Standards:</b> Strict regulations and monitoring to ensure the safety and quality of food products for domestic consumption and export.</li>
+                                <li><b>School Milk Program:</b> Provides free milk to primary school children to improve their nutritional status.</li>
+                                <li><b>Community-Based Food Systems:</b> Encouraging local food production and distribution networks, strengthening food security at the community level.</li>
+                            </ul>
+                            <p class="mt-4">Thailand's success is rooted in its strong agricultural base and strategic policies. Challenges include adapting to climate change impacts on agriculture, managing water resources, and addressing nutritional disparities in certain vulnerable groups.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 3,
+                title: "Good Health and Well-being",
+                color: "sdg-color-3",
+                description: "Ensuring healthy lives and promoting well-being for all at all ages is crucial to sustainable development. This includes reducing maternal and child mortality, combating communicable diseases, ensuring universal access to sexual and reproductive health-care services, and achieving universal health coverage.",
+                countries: [
+                    { name: "Japan", progress: 95 },
+                    { name: "Switzerland", progress: 90 },
+                    { name: "Canada", progress: 85 },
+                    { name: "Norway", progress: 92 },
+                    { name: "Sweden", progress: 88 },
+                    { name: "Australia", progress: 87 }
+                ],
+                statistics: [
+                    { number: "400M+", label: "People lack essential health services" },
+                    { number: "7M", label: "Children under 5 saved since 1980" },
+                    { number: "80%", label: "TB cases prevented and cured since 2000" }
+                ],
+                initiatives: [
+                    "Global vaccination campaigns (e.g., Polio eradication).",
+                    "Strengthening primary healthcare systems.",
+                    "HIV/AIDS prevention and treatment programs.",
+                    "Access to essential medicines and vaccines."
+                ],
+                essay: {
+                    title: "Goal 3: Good Health and Well-being 🏥",
+                    content: `
+                        <p class="mb-4">Good health and well-being are fundamental to human development and a sustainable future. SDG 3 aims to ensure healthy lives and promote well-being for all at all ages, addressing a wide range of health priorities from maternal and child health to infectious diseases and non-communicable diseases.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Maternal and Child Health:</b> Reducing global maternal mortality and ending preventable deaths of newborns and children under 5 years of age, and addressing the nutritional needs of adolescent girls, pregnant and lactating women and older persons.</li>
+                            <li><b>Communicable Diseases:</b> Ending the epidemics of AIDS, tuberculosis, malaria and neglected tropical diseases and combat hepatitis, water-borne diseases and other communicable diseases.</li>
+                            <li><b>Non-communicable Diseases and Mental Health:</b> Reducing by one third premature mortality from non-communicable diseases through prevention and treatment and promote mental health and well-being.</li>
+                            <li><b>Universal Health Coverage:</b> Achieving universal health coverage, including financial risk protection, access to quality essential health-care services and access to safe, effective, quality and affordable essential medicines and vaccines for all.</li>
+                            <li><b>Substance Abuse and Road Safety:</b> Strengthening the prevention and treatment of substance abuse, including narcotic drug abuse and harmful use of alcohol, and halving the number of global deaths and injuries from road traffic accidents.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Over 400 million people worldwide lack access to essential health services.</li>
+                            <li>Significant progress has been made in child survival, with over 7 million children under 5 saved since 1980.</li>
+                            <li>More than 80% of tuberculosis cases have been prevented and cured since 2000.</li>
+                            <li>Challenges remain in addressing emerging health crises, ensuring equitable access to healthcare, and tackling non-communicable diseases.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Disparities in health outcomes persist, particularly in developing countries. Health systems face challenges from pandemics, climate change impacts, and the rising burden of chronic diseases. Ensuring equitable access to vaccines and treatments remains critical.</p>
+                    `
+                },
+                progress: { worldwide: 70 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/transport.jpg",
+                countryDetails: {
+                    "Japan": {
+                        title: "Japan's Approach to Good Health and Well-being (SDG 3)",
+                        description: `
+                            <p class="mb-4">Japan is renowned for its high life expectancy and universal health coverage, demonstrating a strong commitment to the health and well-being of its population.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Universal Health Coverage:</b> Japan operates a universal healthcare system that provides equitable access to medical services for all citizens, funded primarily through taxes and individual contributions.</li>
+                                <li><b>Focus on Preventive Care:</b> Strong emphasis on preventive health measures, including regular health check-ups, vaccinations, and public health campaigns.</li>
+                                <li><b>Maternal and Child Health:</b> Low maternal and child mortality rates due to comprehensive prenatal care, skilled birth attendance, and postnatal support.</li>
+                                <li><b>Geriatric Care:</b> With an aging population, Japan has developed advanced long-term care insurance and services for the elderly, focusing on maintaining quality of life.</li>
+                                <li><b>Disease Control:</b> Effective public health surveillance and rapid response mechanisms for infectious diseases.</li>
+                                <li><b>Healthy Lifestyles:</b> Promotion of traditional Japanese diet and active lifestyles, contributing to lower rates of obesity and chronic diseases.</li>
+                            </ul>
+                            <p class="mt-4">Challenges for Japan include the increasing burden of an aging population on the healthcare system and the need for continuous innovation in medical technology and services.</p>
+                        `
+                    },
+                    "Switzerland": {
+                        title: "Switzerland's Approach to Good Health and Well-being (SDG 3)",
+                        description: `
+                            <p class="mb-4">Switzerland boasts one of the highest standards of healthcare globally, characterized by excellent infrastructure, highly qualified professionals, and a focus on patient choice and quality of life.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Mandatory Health Insurance:</b> All residents are required to have basic health insurance, ensuring broad access to medical care.</li>
+                                <li><b>High Quality of Care:</b> State-of-the-art medical facilities, advanced technologies, and a strong emphasis on research and development.</li>
+                                <li><b>Preventive Health:</b> Public health campaigns and initiatives promoting healthy eating, physical activity, and mental well-being.</li>
+                                <li><b>Access to Medicines:</b> Robust regulatory framework ensuring access to safe and effective medicines.</li>
+                                <li><b>Strong Public Health System:</b> Effective surveillance and response to public health threats, including robust vaccination programs.</li>
+                            </ul>
+                            <p class="mt-4">Despite its high-quality system, Switzerland faces challenges with rising healthcare costs and ensuring affordability for all segments of the population.</p>
+                        `
+                    },
+                    "Canada": {
+                        title: "Canada's Approach to Good Health and Well-being (SDG 3)",
+                        description: `
+                            <p class="mb-4">Canada has one of the world's most accessible healthcare systems and is committed to ensuring the health and well-being of all citizens through publicly funded healthcare, preventive care programs, and strong public health policies.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Universal Healthcare System:</b> Canada provides publicly funded healthcare services to all eligible residents through its Medicare system, ensuring access regardless of income.</li>
+                                <li><b>Preventive Healthcare:</b> Strong emphasis on vaccinations, health screenings, disease prevention programs, and public awareness campaigns.</li>
+                                <li><b>Mental Health Support:</b> Significant investments have been made in mental health services, crisis intervention programs, and community-based support systems.</li>
+                                <li><b>Maternal and Child Health:</b> Canada maintains low maternal and infant mortality rates through quality prenatal care, skilled healthcare professionals, and child wellness programs.</li>
+                                <li><b>Research and Innovation:</b> Canadian institutions contribute significantly to medical research, biotechnology, and innovative healthcare solutions.</li>
+                                <li><b>Indigenous Health Initiatives:</b> Programs are being implemented to improve healthcare access and outcomes for Indigenous communities across the country.</li>
+                                <li><b>Healthy Lifestyle Promotion:</b> Government initiatives encourage physical activity, healthy eating, tobacco reduction, and disease prevention.</li>
+                            </ul>
+                            <p class="mt-4">Canada continues to strengthen its healthcare system while addressing challenges such as rural healthcare access, wait times, and ensuring equitable health outcomes for all citizens.</p>
+                        `
+                    },
+                    "Norway": {
+                        title: "Norway's Approach to Good Health and Well-being (SDG 3)",
+                        description: `
+                            <p class="mb-4">Norway is recognized for its high-quality healthcare system and strong commitment to public health. Through universal healthcare coverage, preventive medicine, and extensive social welfare programs, Norway consistently ranks among the healthiest nations in the world.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Universal Healthcare:</b> Norway provides healthcare services to all residents through a publicly funded healthcare system, ensuring equitable access to medical care.</li>
+                                <li><b>Preventive Health Programs:</b> National initiatives focus on vaccinations, disease prevention, health education, and regular health screenings.</li>
+                                <li><b>Maternal and Child Health:</b> Norway maintains some of the world's lowest maternal and infant mortality rates through comprehensive prenatal and postnatal care.</li>
+                                <li><b>Mental Health Services:</b> The government invests significantly in mental health awareness, treatment programs, and community-based support services.</li>
+                                <li><b>Healthy Lifestyle Promotion:</b> Policies encourage physical activity, balanced nutrition, and reduced tobacco consumption to prevent chronic diseases.</li>
+                                <li><b>Healthcare Innovation:</b> Norway adopts advanced medical technologies and supports research initiatives aimed at improving healthcare outcomes.</li>
+                                <li><b>Elderly Care:</b> Comprehensive services are provided to support the aging population through home care and specialized healthcare facilities.</li>
+                            </ul>
+                            <p class="mt-4">Norway continues to strengthen its healthcare system while addressing challenges such as rising healthcare costs, an aging population, and ensuring equal healthcare access across remote regions.</p>
+                        `
+                    },
+                    "Sweden": {
+                        title: "Sweden's Approach to Good Health and Well-being (SDG 3)",
+                        description: `
+                            <p class="mb-4">Sweden is widely recognized for its comprehensive healthcare system, strong social welfare policies, and commitment to improving the health and well-being of all citizens. The country emphasizes preventive care, equal access to healthcare, and sustainable public health initiatives.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Universal Healthcare System:</b> Sweden provides high-quality healthcare services to all residents through a publicly funded healthcare system, ensuring affordability and accessibility.</li>
+                                <li><b>Preventive Healthcare:</b> Strong focus on disease prevention, vaccination programs, regular health screenings, and public awareness campaigns.</li>
+                                <li><b>Maternal and Child Health:</b> Sweden has some of the world's lowest infant and maternal mortality rates due to excellent prenatal and postnatal healthcare services.</li>
+                                <li><b>Mental Health Support:</b> Significant investments are made in mental health services, counseling programs, and community-based healthcare initiatives.</li>
+                                <li><b>Healthy Lifestyle Promotion:</b> Government policies encourage physical activity, healthy diets, and reduced tobacco and alcohol consumption.</li>
+                                <li><b>Medical Research and Innovation:</b> Sweden supports advanced medical research, biotechnology development, and healthcare innovation to improve patient outcomes.</li>
+                                <li><b>Elderly Care Services:</b> Comprehensive support systems ensure quality healthcare and social services for the aging population.</li>
+                            </ul>
+                            <p class="mt-4">Sweden continues to enhance its healthcare system while addressing challenges such as an aging population, healthcare workforce shortages, and maintaining equal access to services across all regions.</p>
+                        `
+                    },
+                    "Australia": {
+                        title: "Australia's Approach to Good Health and Well-being (SDG 3)",
+                        description: `
+                            <p class="mb-4">Australia is known for its high-quality healthcare system and strong commitment to promoting the health and well-being of its population. Through universal healthcare coverage, preventive health initiatives, and medical innovation, Australia continues to achieve excellent health outcomes.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Universal Healthcare:</b> Australia's Medicare system provides affordable access to healthcare services for all eligible residents.</li>
+                                <li><b>Preventive Health Programs:</b> National campaigns focus on vaccination, disease prevention, healthy lifestyles, and early detection of illnesses.</li>
+                                <li><b>Maternal and Child Health:</b> Australia maintains low maternal and infant mortality rates through quality healthcare services and family support programs.</li>
+                                <li><b>Mental Health Support:</b> Significant investments are made in mental health awareness, counseling services, crisis support, and treatment programs.</li>
+                                <li><b>Medical Research and Innovation:</b> Australian institutions contribute to global advancements in medicine, biotechnology, and healthcare technologies.</li>
+                                <li><b>Rural and Remote Healthcare:</b> Special initiatives aim to improve healthcare accessibility for people living in remote and regional areas.</li>
+                                <li><b>Healthy Lifestyle Promotion:</b> Government programs encourage physical activity, balanced nutrition, smoking reduction, and disease prevention.</li>
+                            </ul>
+                            <p class="mt-4">Australia continues to strengthen its healthcare system while addressing challenges such as healthcare accessibility in remote regions, rising healthcare costs, and increasing demand from an aging population.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 4,
+                title: "Quality Education",
+                color: "sdg-color-4",
+                description: "Achieving inclusive and equitable quality education and promoting lifelong learning opportunities for all is fundamental for people to escape poverty and live a more fulfilling life. It focuses on ensuring all girls and boys complete free, equitable, and quality primary and secondary education.",
+                countries: [
+                    { name: "Finland", progress: 95 },
+                    { name: "Canada", progress: 90 },
+                    { name: "South Korea", progress: 88 },
+                    { name: "Estonia", progress: 92 },
+                    { name: "Singapore", progress: 87 },
+                    { name: "Netherlands", progress: 89 }
+                ],
+                statistics: [
+                    { number: "250M", label: "Children out of school" },
+                    { number: "773M", label: "Illiterate adults globally" },
+                    { number: "90%", label: "Primary school enrollment (global)" }
+                ],
+                initiatives: [
+                    "Investment in early childhood development.",
+                    "Teacher training and professional development.",
+                    "Promoting digital literacy and remote learning.",
+                    "Scholarship programs for higher education."
+                ],
+                essay: {
+                    title: "Goal 4: Quality Education 🎓",
+                    content: `
+                        <p class="mb-4">Quality education is the foundation for improving people’s lives and sustainable development. SDG 4 aims to ensure inclusive and equitable quality education and promote lifelong learning opportunities for all, from early childhood to higher education and vocational training.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Free Primary and Secondary Education:</b> Ensuring that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes.</li>
+                            <li><b>Early Childhood Development:</b> Ensuring that all girls and boys have access to quality early childhood development, care and pre-primary education so that they are ready for primary education.</li>
+                            <li><b>Technical, Vocational and Tertiary Education:</b> Ensuring equal access for all women and men to affordable and quality technical, vocational and tertiary education, including university.</li>
+                            <li><b>Relevant Skills:</b> Substantially increasing the number of youth and adults who have relevant skills, including technical and vocational skills, for employment, decent jobs and entrepreneurship.</li>
+                            <li><b>Literacy and Numeracy:</b> Eliminating gender disparities in education and ensuring equal access to all levels of education and vocational training for the vulnerable, including persons with disabilities, indigenous peoples and children in vulnerable situations.</li>
+                            <li><b>Global Citizenship Education:</b> Ensuring that all learners acquire the knowledge and skills needed to promote sustainable development, including, among others, through education for sustainable development and sustainable lifestyles, human rights, gender equality, promotion of a culture of peace and non-violence, global citizenship and appreciation of cultural diversity and of culture’s contribution to sustainable development.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Approximately 250 million children worldwide are still out of school, highlighting ongoing access issues.</li>
+                            <li>Globally, 773 million adults remain illiterate, with women accounting for two-thirds of this figure.</li>
+                            <li>Primary school enrollment has reached around 90% globally, but disparities in quality and access persist.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Challenges include inadequate funding, lack of qualified teachers, poor infrastructure, and inequalities in access, especially for marginalized groups and in conflict-affected areas. The digital divide also impacts access to modern learning resources.</p>
+                    `
+                },
+                progress: { worldwide: 75 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/topics_9-education-original.jpg.jpg",
+                countryDetails: {
+                    "Finland": {
+                        title: "Finland's Approach to Quality Education (SDG 4)",
+                        description: `
+                            <p class="mb-4">Finland is consistently ranked among the top countries for education quality, emphasizing equity, highly trained teachers, and a student-centered approach.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Highly Qualified Teachers:</b> All teachers are required to have a Master's degree, and teaching is a highly respected profession, attracting top talent.</li>
+                                <li><b>Equity and Inclusivity:</b> The system aims to provide equal educational opportunities for all students, regardless of their socioeconomic background or location.</li>
+                                <li><b>No Standardized Testing:</b> Focus is on individualized learning and continuous assessment rather than high-stakes standardized tests.</li>
+                                <li><b>Early Childhood Education:</b> Strong emphasis on play-based learning and holistic development in early childhood education.</li>
+                                <li><b>Lifelong Learning:</b> Promoting continuous learning and skill development throughout life, adapting to changing labor market needs.</li>
+                            </ul>
+                            <p class="mt-4">Finland's success lies in its trust-based system, professional autonomy for teachers, and a culture that values education deeply. Challenges include maintaining innovation and adapting to global changes while preserving core values.</p>
+                        `
+                    },
+                    "Canada": {
+                        title: "Canada's Approach to Quality Education (SDG 4)",
+                        description: `
+                            <p class="mb-4">Canada provides high-quality, publicly funded education with a strong focus on inclusivity, diversity, and preparing students for global citizenship.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Decentralized System:</b> Education is primarily managed at the provincial and territorial levels, allowing for tailored approaches to local needs.</li>
+                                <li><b>High Enrollment Rates:</b> High participation rates in early childhood education, primary, secondary, and tertiary education.</li>
+                                <li><b>Multicultural Education:</b> Emphasis on multiculturalism and Indigenous education, promoting diversity and inclusion in curricula.</li>
+                                <li><b>Vocational Training:</b> Strong vocational and technical education pathways to equip students with practical skills for the workforce.</li>
+                                <li><b>Affordable Higher Education:</b> Relatively affordable tuition fees for post-secondary education compared to some other developed countries.</li>
+                            </ul>
+                            <p class="mt-4">Challenges include addressing educational disparities in remote and Indigenous communities and ensuring equitable access to digital learning resources across the vast country.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 5,
+                title: "Gender Equality",
+                color: "sdg-color-5",
+                description: "Gender equality is not only a fundamental human right, but a necessary foundation for a peaceful, prosperous and sustainable world. This goal aims to end all forms of discrimination against all women and girls everywhere, eliminate violence, and ensure women's full and effective participation and equal opportunities for leadership.",
+                countries: [
+                    { name: "Iceland", progress: 95 },
+                    { name: "Norway", progress: 92 },
+                    { name: "Sweden", progress: 90 },
+                    { name: "Finland", progress: 88 },
+                    { name: "New Zealand", progress: 87 },
+                    { name: "Denmark", progress: 85 }
+                ],
+                statistics: [
+                    { number: "1 in 3", label: "Women experienced physical/sexual violence" },
+                    { number: "24%", label: "Female parliamentarians (global)" },
+                    { number: "75%", label: "Women in informal employment" }
+                ],
+                initiatives: [
+                    "Legislation for equal pay and rights.",
+                    "Campaigns to end gender-based violence.",
+                    "Promoting women's leadership and participation in decision-making.",
+                    "Empowering women through access to education and economic resources."
+                ],
+                essay: {
+                    title: "Goal 5: Gender Equality♀️",
+                    content: `
+                        <p class="mb-4">Gender equality is not only a fundamental human right, but a necessary foundation for a peaceful, prosperous, and sustainable world. SDG 5 aims to achieve gender equality and empower all women and girls, recognizing that empowering women benefits all of society.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>End Discrimination:</b> Ending all forms of discrimination against all women and girls everywhere.</li>
+                            <li><b>Eliminate Violence:</b> Eliminating all forms of violence against all women and girls in the public and private spheres, including trafficking and sexual and other types of exploitation.</li>
+                            <li><b>Eliminate Harmful Practices:</b> Eliminating all harmful practices, such as child, early and forced marriage and female genital mutilation.</li>
+                            <li><b>Equal Participation:</b> Recognizing and valuing unpaid care and domestic work through the provision of public services, infrastructure and social protection policies and the promotion of shared responsibility within the household and the family as nationally appropriate.</li>
+                            <li><b>Equal Opportunities:</b> Ensuring women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life.</li>
+                            <li><b>Reproductive Health and Rights:</b> Ensuring universal access to sexual and reproductive health and reproductive rights.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Globally, 1 in 3 women has experienced physical or sexual violence, mostly by an intimate partner.</li>
+                            <li>Women hold only 24% of parliamentary seats worldwide, indicating a significant gap in political representation.</li>
+                            <li>Around 75% of women in developing regions are in informal employment, with limited social protection.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Deep-rooted patriarchal norms, gender-based violence, economic disparities, and limited access to education and healthcare continue to impede gender equality. Progress is uneven across regions and often slow.</p>
+                    `
+                },
+                progress: { worldwide: 68 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/topics_15-genderequality-original.jpg.jpg",
+                countryDetails: {
+                    "Iceland": {
+                        title: "Iceland's Approach to Gender Equality (SDG 5)",
+                        description: `
+                            <p class="mb-4">Iceland is consistently ranked as a global leader in gender equality, driven by progressive legislation, strong social norms, and a commitment to equal opportunities.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Equal Pay Legislation:</b> Iceland was the first country to make it illegal to pay men more than women for the same job, requiring companies to prove pay equality.</li>
+                                <li><b>Generous Parental Leave:</b> A comprehensive parental leave system that encourages both parents to take time off, promoting shared childcare responsibilities.</li>
+                                <li><b>High Female Political Representation:</b> Consistently high representation of women in parliament and leadership positions.</li>
+                                <li><b>Combating Gender-Based Violence:</b> Strong legal frameworks and support services for victims of gender-based violence.</li>
+                                <li><b>Shared Responsibility:</b> Cultural emphasis on shared responsibilities in the home and workplace, fostering a more equitable society.</li>
+                            </ul>
+                            <p class="mt-4">Iceland's success is a result of decades of sustained political will and societal commitment. While significant progress has been made, continuous efforts are needed to address remaining subtle inequalities.</p>
+                        `
+                    },
+                    "Sweden": {
+                        title: "Sweden's Approach to Gender Equality (SDG 5)",
+                        description: `
+                            <p class="mb-4">Sweden is globally recognized for its progressive policies and strong commitment to gender equality, aiming for a society where women and men have equal power to shape society and their own lives.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Feminist Foreign Policy:</b> Sweden was the first country to adopt a feminist foreign policy, integrating gender equality perspectives into all aspects of its international relations.</li>
+                                <li><b>Comprehensive Parental Leave:</b> A highly flexible and generous parental leave system that encourages fathers to take leave, contributing to more equal sharing of care work.</li>
+                                <li><b>Gender Mainstreaming:</b> Integrating gender equality perspectives into all policy-making and public administration.</li>
+                                <li><b>Affordable Childcare:</b> Extensive and affordable public childcare services, enabling women to participate fully in the labor market.</li>
+                                <li><b>Combating Violence Against Women:</b> Strong legal frameworks and support services to prevent and address violence against women.</li>
+                            </ul>
+                            <p class="mt-4">Sweden's commitment to gender equality is deeply embedded in its social fabric and policy-making. Ongoing challenges include addressing gender segregation in the labor market and ensuring full economic independence for all women.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 6,
+                title: "Clean Water and Sanitation",
+                color: "sdg-color-6",
+                description: "Access to water, sanitation, and hygiene is a human right, yet billions still lack it. This goal seeks to achieve universal and equitable access to safe and affordable drinking water for all, adequate and equitable sanitation and hygiene for all, and improve water quality.",
+                countries: [
+                    { name: "Germany", progress: 95 },
+                    { name: "Netherlands", progress: 92 },
+                    { name: "Singapore", progress: 90 },
+                    { name: "Switzerland", progress: 93 },
+                    { name: "Denmark", progress: 91 },
+                    { name: "Israel", progress: 88 }
+                ],
+                statistics: [
+                    { number: "2.2B", label: "People lack safely managed drinking water" },
+                    { number: "4.2B", label: "People lack safely managed sanitation" },
+                    { number: "3B", label: "People lack basic handwashing facilities" }
+                ],
+                initiatives: [
+                    "Community-led total sanitation (CLTS) programs.",
+                    "Investment in water infrastructure and treatment plants.",
+                    "Water conservation and efficient irrigation techniques.",
+                    "Transboundary water cooperation agreements."
+                ],
+                essay: {
+                    title: "Goal 6: Clean Water and Sanitation 💧",
+                    content: `
+                        <p class="mb-4">Access to safe and affordable drinking water, sanitation, and hygiene is a basic human right and crucial for human health, dignity, and prosperity. SDG 6 aims to ensure availability and sustainable management of water and sanitation for all.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Safe Drinking Water:</b> Achieving universal and equitable access to safe and affordable drinking water for all.</li>
+                            <li><b>Adequate Sanitation and Hygiene:</b> Achieving access to adequate and equitable sanitation and hygiene for all and ending open defecation, paying special attention to the needs of women and girls and those in vulnerable situations.</li>
+                            <li><b>Water Quality:</b> Improving water quality by reducing pollution, eliminating dumping and minimizing release of hazardous chemicals and materials, halving the proportion of untreated wastewater and substantially increasing recycling and safe reuse globally.</li>
+                            <li><b>Water-use Efficiency:</b> Substantially increasing water-use efficiency across all sectors and ensure sustainable withdrawals and supply of freshwater to address water scarcity and substantially reduce the number of people suffering from water scarcity.</li>
+                            <li><b>Integrated Water Resources Management:</b> Implementing integrated water resources management at all levels, including through transboundary cooperation as appropriate.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Around 2.2 billion people still lack safely managed drinking water services.</li>
+                            <li>Approximately 4.2 billion people lack safely managed sanitation services.</li>
+                            <li>3 billion people still lack basic handwashing facilities at home.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Water scarcity is intensifying due to climate change, population growth, and pollution. Inadequate infrastructure, lack of funding, and poor governance hinder progress in providing universal access to clean water and sanitation.</p>
+                    `
+                },
+                progress: { worldwide: 60 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/water_0.jpg",
+                countryDetails: {
+                    "Germany": {
+                        title: "Germany's Approach to Clean Water and Sanitation (SDG 6)",
+                        description: `
+                            <p class="mb-4">Germany is a leader in water management, ensuring almost universal access to high-quality drinking water and advanced sanitation systems.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>High Water Quality Standards:</b> Strict regulations and continuous monitoring ensure excellent drinking water quality across the country.</li>
+                                <li><b>Advanced Wastewater Treatment:</b> Extensive network of modern wastewater treatment plants, leading to very high rates of treated wastewater.</li>
+                                <li><b>Water Conservation:</b> Promotion of efficient water use in industry, agriculture, and households, alongside measures to protect water sources.</li>
+                                <li><b>Integrated Water Resource Management:</b> Holistic approach to managing water resources, considering ecological, economic, and social aspects.</li>
+                                <li><b>International Cooperation:</b> Active involvement in international initiatives for water management and sanitation in developing countries.</li>
+                            </ul>
+                            <p class="mt-4">Germany's success is built on robust infrastructure, strong regulatory frameworks, and public awareness. Challenges include adapting to climate change impacts on water availability and managing emerging contaminants.</p>
+                        `
+                    },
+                    "Singapore": {
+                        title: "Singapore's Approach to Clean Water and Sanitation (SDG 6)",
+                        description: `
+                            <p class="mb-4">Despite being a small island nation with limited natural water resources, Singapore has achieved remarkable water security through innovative technologies and strategic planning.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Four National Taps Strategy:</b> Diversifying water sources through local catchments, imported water, NEWater (reclaimed water), and desalinated water.</li>
+                                <li><b>NEWater:</b> A world leader in producing high-grade reclaimed water, significantly enhancing water supply resilience.</li>
+                                <li><b>Desalination Plants:</b> Investing in advanced desalination technology to convert seawater into potable water.</li>
+                                <li><b>Integrated Water Management:</b> Comprehensive management of the entire water cycle, from collection to treatment and reuse.</li>
+                                <li><b>Public Education:</b> Strong public awareness campaigns to encourage water conservation and responsible water use.</li>
+                            </ul>
+                            <p class="mt-4">Singapore's innovative and integrated approach serves as a global model for water-stressed regions. Challenges include the high energy intensity of desalination and the need for continuous R&D in water technologies.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 7,
+                title: "Affordable and Clean Energy",
+                color: "sdg-color-7",
+                description: "Ensuring access to affordable, reliable, sustainable, and modern energy for all is vital. It involves increasing substantially the share of renewable energy in the global energy mix and doubling the global rate of improvement in energy efficiency.",
+                countries: [
+                    { name: "Denmark", progress: 90 },
+                    { name: "Germany", progress: 85 },
+                    { name: "Sweden", progress: 92 },
+                    { name: "Costa Rica", progress: 95 },
+                    { name: "Norway", progress: 93 },
+                    { name: "Portugal", progress: 80 }
+                ],
+                statistics: [
+                    { number: "770M", label: "People lack access to electricity" },
+                    { number: "17%", label: "Renewable energy in global energy mix (2025)" },
+                    { number: "2x", label: "Target for global rate of energy efficiency improvement" }
+                ],
+                initiatives: [
+                    "Solar and wind energy projects.",
+                    "Development of smart grids and energy storage solutions.",
+                    "Off-grid renewable energy solutions for rural areas.",
+                    "Energy efficiency standards for buildings and appliances."
+                ],
+                essay: {
+                    title: "Goal 7: Affordable and Clean Energy 💡",
+                    content: `
+                        <p class="mb-4">Access to affordable, reliable, sustainable, and modern energy is essential for economic development and poverty eradication. SDG 7 aims to ensure universal access to energy, increase the share of renewable energy, and improve energy efficiency globally.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Universal Access to Energy:</b> Ensuring universal access to affordable, reliable and modern energy services.</li>
+                            <li><b>Increase Renewable Energy:</b> Increasing substantially the share of renewable energy in the global energy mix.</li>
+                            <li><b>Improve Energy Efficiency:</b> Doubling the global rate of improvement in energy efficiency.</li>
+                            <li><b>Research and Technology:</b> Enhancing international cooperation to facilitate access to clean energy research and technology, including renewable energy, energy efficiency and advanced and cleaner fossil-fuel technologies, and promote investment in energy infrastructure and clean energy technologies.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Around 770 million people still lack access to electricity, primarily in sub-Saharan Africa.</li>
+                            <li>Renewable energy accounts for approximately 17% of the global energy mix (2025 projection), but needs to grow much faster.</li>
+                            <li>The target is to double the global rate of improvement in energy efficiency.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Challenges include insufficient investment in renewable energy infrastructure, reliance on fossil fuels, and difficulties in reaching remote populations. Geopolitical tensions can also impact energy supply and prices.</p>
+                    `
+                },
+                progress: { worldwide: 70 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2023-04/Energy%20Images%20cropped.jpg",
+                countryDetails: {
+                    "Costa Rica": {
+                        title: "Costa Rica's Approach to Affordable and Clean Energy (SDG 7)",
+                        description: `
+                            <p class="mb-4">Costa Rica is a global leader in renewable energy, consistently generating a very high percentage of its electricity from clean sources, primarily hydropower, geothermal, wind, and solar.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Nearly 100% Renewable Electricity:</b> For many years, Costa Rica has achieved near 100% renewable electricity generation, largely due to its abundant hydropower resources.</li>
+                                <li><b>Diversified Renewable Mix:</b> Beyond hydropower, the country has significantly invested in geothermal, wind, and solar energy to diversify its clean energy portfolio.</li>
+                                <li><b>National Energy Plan:</b> Long-term strategies to maintain and expand renewable energy capacity and promote energy efficiency.</li>
+                                <li><b>Sustainable Development Focus:</b> Energy policy is integrated with broader environmental protection and sustainable development goals.</li>
+                            </ul>
+                            <p class="mt-4">Costa Rica's success is a testament to its natural endowments and strong political will. Challenges include decarbonizing the transportation sector and managing the variability of renewable energy sources.</p>
+                        `
+                    },
+                    "Denmark": {
+                        title: "Denmark's Approach to Affordable and Clean Energy (SDG 7)",
+                        description: `
+                            <p class="mb-4">Denmark is a pioneer in renewable energy and energy efficiency, aiming for a fossil-fuel-free energy system by 2050.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Wind Power Leadership:</b> A world leader in wind energy, with a significant portion of its electricity coming from onshore and offshore wind farms.</li>
+                                <li><b>District Heating Systems:</b> Extensive and efficient district heating networks, often powered by renewable energy or combined heat and power plants.</li>
+                                <li><b>Energy Efficiency Initiatives:</b> Strong policies and incentives for energy efficiency in buildings, industry, and transportation.</li>
+                                <li><b>Smart Grid Development:</b> Investing in smart grid technologies to integrate more renewable energy and manage demand efficiently.</li>
+                                <li><b>Green Transition Policies:</b> Ambitious climate and energy targets, driving innovation and investment in green technologies.</li>
+                            </ul>
+                            <p class="mt-4">Denmark's transition to clean energy is a model for other nations, demonstrating that economic growth can be decoupled from fossil fuel consumption. Challenges include ensuring grid stability with high renewable penetration and managing energy costs.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 8,
+                title: "Decent Work and Economic Growth",
+                color: "sdg-color-8",
+                description: "This goal promotes sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all. It emphasizes protecting labor rights, promoting safe and secure working environments, and fostering entrepreneurship and innovation.",
+                countries: [
+                    { name: "New Zealand", progress: 88 },
+                    { name: "Sweden", progress: 90 },
+                    { name: "Germany", progress: 85 },
+                    { name: "Netherlands", progress: 87 },
+                    { name: "Canada", progress: 86 },
+                    { name: "Switzerland", progress: 91 }
+                ],
+                statistics: [
+                    { number: "200M+", label: "Unemployed worldwide" },
+                    { number: "$1.91", label: "International poverty line (per day)" },
+                    { number: "7.7%", label: "Youth unemployment rate (global)" }
+                ],
+                initiatives: [
+                    "Promoting fair wages and safe working conditions.",
+                    "Support for small and medium-sized enterprises (SMEs).",
+                    "Vocational training and skills development programs.",
+                    "Combating forced labor and child labor."
+                ],
+                essay: {
+                    title: "Goal 8: Decent Work and Economic Growth 💼",
+                    content: `
+                        <p class="mb-4">Sustainable economic growth requires societies to create the conditions that allow people to have quality jobs that stimulate the economy while not harming the environment. SDG 8 aims to promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Sustainable Economic Growth:</b> Sustaining per capita economic growth in accordance with national circumstances and, in particular, at least 7 per cent gross domestic product growth per annum in the least developed countries.</li>
+                            <li><b>Productive Employment and Decent Work:</b> Achieving full and productive employment and decent work for all women and men, including for young people and persons with disabilities, and equal pay for work of equal value.</li>
+                            <li><b>Youth Employment:</b> Substantially reducing the proportion of youth not in employment, education or training.</li>
+                            <li><b>Labor Rights and Safe Work:</b> Protecting labour rights and promoting safe and secure working environments for all workers, including migrant workers, in particular women migrants, and those in precarious employment.</li>
+                            <li><b>Sustainable Tourism:</b> Devising and implementing policies to promote sustainable tourism that creates jobs and promotes local culture and products.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Over 200 million people worldwide are unemployed, with youth unemployment remaining a significant concern.</li>
+                            <li>The international poverty line is set at $2.15 per day, highlighting the need for decent wages.</li>
+                            <li>The global youth unemployment rate stands at approximately 7.7%, indicating challenges in integrating young people into the workforce.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Automation, global economic slowdowns, and persistent informal economies pose significant challenges. Ensuring fair wages, safe working conditions, and social protection for all workers remains a priority.</p>
+                    `
+                },
+                progress: { worldwide: 62 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/topics_10-employement-original.jpg.jpg",
+                countryDetails: {
+                    "New Zealand": {
+                        title: "New Zealand's Approach to Decent Work and Economic Growth (SDG 8)",
+                        description: `
+                            <p class="mb-4">New Zealand focuses on inclusive economic growth that benefits all its citizens, with a strong emphasis on fair wages, worker rights, and sustainable business practices.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Living Wage Movement:</b> Strong advocacy and increasing adoption of living wage principles to ensure workers can meet basic needs.</li>
+                                <li><b>Strong Labor Laws:</b> Robust legal framework protecting workers' rights, including collective bargaining and safe working conditions.</li>
+                                <li><b>Support for Small Businesses:</b> Government programs and initiatives to support the growth of small and medium-sized enterprises (SMEs), which are key drivers of employment.</li>
+                                <li><b>Skills Development:</b> Investment in vocational training and education to ensure a skilled workforce that meets the demands of a changing economy.</li>
+                                <li><b>Tourism Sustainability:</b> Promoting sustainable tourism practices that create local jobs while preserving natural and cultural heritage.</li>
+                            </ul>
+                            <p class="mt-4">New Zealand aims for a "well-being economy" that balances economic prosperity with social and environmental outcomes. Challenges include addressing regional economic disparities and adapting to automation's impact on employment.</p>
+                        `
+                    },
+                    "Sweden": {
+                        title: "Sweden's Approach to Decent Work and Economic Growth (SDG 8)",
+                        description: `
+                            <p class="mb-4">Sweden is known for its strong social dialogue, high employment rates, and a focus on innovative and sustainable economic growth.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Active Labor Market Policies:</b> Programs that support job seekers through training, counseling, and matching services to reduce unemployment.</li>
+                                <li><b>Strong Trade Unions:</b> High unionization rates and collective bargaining agreements ensure fair wages and good working conditions.</li>
+                                <li><b>Innovation and Entrepreneurship:</b> A supportive ecosystem for startups and innovation, fostering new businesses and job creation, particularly in green technologies.</li>
+                                <li><b>Gender Equality in Work:</b> Policies promoting equal opportunities and pay for women, contributing to high female labor force participation.</li>
+                                <li><b>Sustainable Business Practices:</b> Encouraging companies to adopt environmentally and socially responsible production methods.</li>
+                            </ul>
+                            <p class="mt-4">Sweden's model emphasizes a balance between economic dynamism and social welfare. Challenges include integrating newly arrived immigrants into the labor market and addressing skills gaps in a rapidly evolving economy.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 9,
+                title: "Industry, Innovation, and Infrastructure",
+                color: "sdg-color-9",
+                description: "Building resilient infrastructure, promoting inclusive and sustainable industrialization, and fostering innovation are crucial for sustainable development. This involves developing quality, reliable, sustainable and resilient infrastructure, and enhancing scientific research and upgrading the technological capabilities of industrial sectors.",
+                countries: [
+                    { name: "South Korea", progress: 90 },
+                    { name: "Germany", progress: 88 },
+                    { name: "Japan", progress: 87 },
+                    { name: "Switzerland", progress: 89 },
+                    { name: "USA", progress: 85 },
+                    { name: "China", progress: 80 }
+                ],
+                statistics: [
+                    { number: "75%", label: "Rural population lacks adequate roads" },
+                    { number: "14%", label: "Manufacturing value added (LDCs, 2017)" },
+                    { number: "3.5B", label: "People lack internet access" }
+                ],
+                initiatives: [
+                    "Investment in renewable energy infrastructure.",
+                    "Development of sustainable transport systems.",
+                    "Promoting research and development in green technologies.",
+                    "Expanding access to information and communication technologies (ICT)."
+                ],
+                essay: {
+                    title: "Goal 9: Industry, Innovation, and Infrastructure 🏗️",
+                    content: `
+                        <p class="mb-4">Investments in infrastructure – transport, irrigation, energy and information and communication technology – are crucial to achieving sustainable development and empowering communities. SDG 9 aims to build resilient infrastructure, promote inclusive and sustainable industrialization, and foster innovation.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Resilient Infrastructure:</b> Developing quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all.</li>
+                            <li><b>Inclusive and Sustainable Industrialization:</b> Promoting inclusive and sustainable industrialization and, by 2030, significantly raise industry’s share of employment and gross domestic product, in line with national circumstances, and double its share in least developed countries.</li>
+                            <li><b>Innovation and Technology:</b> Increasing scientific research, upgrading the technological capabilities of industrial sectors in all countries, in particular developing countries, including, by 2030, encouraging innovation and substantially increasing the number of research and development workers per 1 million people and public and private research and development spending.</li>
+                            <li><b>Access to ICT:</b> Significantly increasing access to information and communications technology and strive to provide universal and affordable access to the Internet in least developed countries by 2020.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Around 75% of the rural population in developing countries lacks adequate roads, hindering access to markets and services.</li>
+                            <li>Manufacturing value added in Least Developed Countries (LDCs) was only 14% in 2017, highlighting the need for industrial growth.</li>
+                            <li>Approximately 3.5 billion people still lack internet access, emphasizing the digital divide.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Lack of investment, technological disparities, and the need for green infrastructure pose significant challenges. Ensuring that industrialization is sustainable and inclusive requires careful planning and policy implementation.</p>
+                    `
+                },
+                progress: { worldwide: 70 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/topics_19-industry-original.jpg.jpg",
+                countryDetails: {
+                    "South Korea": {
+                        title: "South Korea's Approach to Industry, Innovation, and Infrastructure (SDG 9)",
+                        description: `
+                            <p class="mb-4">South Korea is a global powerhouse in innovation, technology, and advanced manufacturing, driven by strategic government investment and a highly skilled workforce.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>High R&D Investment:</b> One of the highest R&D spending as a percentage of GDP globally, fostering innovation in various sectors, including ICT, biotechnology, and renewable energy.</li>
+                                <li><b>Advanced Digital Infrastructure:</b> World-leading internet connectivity and digital infrastructure, enabling rapid adoption of new technologies.</li>
+                                <li><b>Smart Cities Initiatives:</b> Developing smart city solutions to improve urban living, transportation, and resource management.</li>
+                                <li><b>Export-Oriented Industries:</b> Strong focus on high-tech manufacturing and export-driven industries, contributing to economic growth and job creation.</li>
+                                <li><b>Support for Startups:</b> Government programs and venture capital support for startups and small businesses in innovative fields.</li>
+                            </ul>
+                            <p class="mt-4">South Korea's rapid industrialization and technological advancement serve as a model for developing nations. Challenges include maintaining competitiveness in a fast-changing global landscape and addressing environmental impacts of industrial growth.</p>
+                        `
+                    },
+                    "Germany": {
+                        title: "Germany's Approach to Industry, Innovation, and Infrastructure (SDG 9)",
+                        description: `
+                            <p class="mb-4">Germany is renowned for its strong industrial base, engineering excellence, and commitment to innovation, particularly in sustainable technologies and digitalization.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Industry 4.0:</b> Leading the way in the fourth industrial revolution, integrating digital technologies into manufacturing processes to enhance efficiency and sustainability.</li>
+                                <li><b>Robust Infrastructure:</b> High-quality transportation networks (roads, rail, ports) and energy infrastructure supporting economic activity.</li>
+                                <li><b>Strong R&D Ecosystem:</b> Significant public and private investment in research and development, fostering collaboration between universities, research institutions, and industry.</li>
+                                <li><b>Vocational Training:</b> Dual vocational training system ensures a highly skilled workforce that meets the demands of modern industries.</li>
+                                <li><b>Green Technologies:</b> A global leader in developing and exporting environmental technologies, contributing to sustainable industrialization.</li>
+                            </ul>
+                            <p class="mt-4">Germany's strength lies in its "Mittelstand" (small and medium-sized enterprises) and its focus on high-value, specialized products. Challenges include adapting to global supply chain disruptions and accelerating digitalization across all sectors.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 10,
+                title: "Reduced Inequalities",
+                color: "sdg-color-10",
+                description: "Reducing inequality within and among countries is a key part of the sustainable development agenda. This means empowering and promoting the social, economic and political inclusion of all, irrespective of age, sex, disability, race, ethnicity, origin, religion or economic or other status.",
+                countries: [
+                    { name: "Norway", progress: 92 },
+                    { name: "Denmark", progress: 90 },
+                    { name: "Finland", progress: 88 },
+                    { name: "Sweden", progress: 89 },
+                    { name: "Slovenia", progress: 85 },
+                    { name: "Belgium", progress: 84 }
+                ],
+                statistics: [
+                    { number: "40%", label: "Poorest share of national income decreased" },
+                    { number: "10%", label: "Wealthiest hold 76% of global wealth" },
+                    { number: "1B+", label: "People with disabilities" }
+                ],
+                initiatives: [
+                    "Progressive taxation policies.",
+                    "Social protection floors and universal basic services.",
+                    "Anti-discrimination legislation and policies.",
+                    "Promoting representation of marginalized groups in decision-making."
+                ],
+                essay: {
+                    title: "Goal 10: Reduced Inequalities ↔️",
+                    content: `
+                        <p class="mb-4">Reducing inequalities and ensuring no one is left behind are integral to achieving the Sustainable Development Goals. SDG 10 aims to reduce inequality within and among countries, focusing on income, opportunity, and outcome disparities.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Income Growth of the Bottom 40%:</b> Progressively achieving and sustaining income growth of the bottom 40 per cent of the population at a rate higher than the national average.</li>
+                            <li><b>Social, Economic and Political Inclusion:</b> Empowering and promoting the social, economic and political inclusion of all, irrespective of age, sex, disability, race, ethnicity, origin, religion or economic or other status.</li>
+                            <li><b>Equal Opportunity:</b> Ensuring equal opportunity and reducing inequalities of outcome, including by eliminating discriminatory laws, policies and practices and promoting appropriate legislation, policies and action in this regard.</li>
+                            <li><b>Fiscal and Social Policies:</b> Adopting policies, especially fiscal, wage and social protection policies, and progressively achieve greater equality.</li>
+                            <li><b>Representation in Global Institutions:</b> Ensuring enhanced representation and voice for developing countries in decision-making in global international economic and financial institutions in order to deliver more effective, credible, accountable and legitimate institutions.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>The poorest 40% of the population saw their share of national income decrease in many countries, indicating widening gaps.</li>
+                            <li>The wealthiest 10% of the global population hold 76% of the world's wealth, highlighting extreme disparities.</li>
+                            <li>Over 1 billion people worldwide live with some form of disability, facing significant barriers to inclusion.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Global crises, technological shifts, and discriminatory practices exacerbate inequalities. Addressing these requires comprehensive policy reforms, including progressive taxation, social protection, and inclusive governance.</p>
+                    `
+                },
+                progress: { worldwide: 60 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/topics_1-africa-original.jpg.jpg",
+                countryDetails: {
+                    "Norway": {
+                        title: "Norway's Approach to Reduced Inequalities (SDG 10)",
+                        description: `
+                            <p class="mb-4">Norway is known for its highly egalitarian society, with strong social safety nets and policies aimed at reducing income and social inequalities.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Progressive Taxation:</b> A progressive tax system that redistributes wealth and reduces income disparities.</li>
+                                <li><b>Universal Social Services:</b> High-quality public services, including healthcare and education, accessible to all, regardless of income.</li>
+                                <li><b>Strong Welfare State:</b> Comprehensive social security benefits, unemployment support, and family benefits that provide a strong safety net.</li>
+                                <li><b>Inclusive Labor Market:</b> Policies promoting high labor force participation, fair wages, and strong union representation.</li>
+                                <li><b>Gender Equality:</b> Policies promoting gender equality in education, employment, and political participation, which significantly contribute to reduced overall inequality.</li>
+                            </ul>
+                            <p class="mt-4">Norway's success in reducing inequalities is deeply rooted in its social democratic model and responsible management of its natural resources. Challenges include addressing new forms of inequality that may arise from globalization and technological changes.</p>
+                        `
+                    },
+                    "Denmark": {
+                        title: "Denmark's Approach to Reduced Inequalities (SDG 10)",
+                        description: `
+                            <p class="mb-4">Denmark is a highly egalitarian society with a strong welfare state that aims to ensure equal opportunities and reduce disparities among its citizens.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Universal Access to Public Services:</b> Free or highly subsidized healthcare, education, and childcare, ensuring that essential services are not dependent on income.</li>
+                                <li><b>Flexicurity Model:</b> A labor market model combining flexibility for employers with security for employees, including generous unemployment benefits and active labor market policies.</li>
+                                <li><b>Progressive Taxation:</b> A tax system designed to redistribute wealth and fund public services, contributing to lower income inequality.</li>
+                                <li><b>Social Inclusion Programs:</b> Initiatives aimed at integrating marginalized groups, including immigrants and people with disabilities, into society and the workforce.</li>
+                            </ul>
+                            <p class="mt-4">Denmark's commitment to social cohesion and equality is a cornerstone of its societal model. Challenges include managing the costs of a comprehensive welfare state and addressing the integration of diverse populations.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 11,
+                title: "Sustainable Cities and Communities",
+                color: "sdg-color-11",
+                description: "Making cities and human settlements inclusive, safe, resilient, and sustainable. This includes enhancing inclusive and sustainable urbanization, protecting cultural and natural heritage, reducing the adverse per capita environmental impact of cities, and providing access to safe, affordable, accessible and sustainable transport systems for all.",
+                countries: [
+                    { name: "Sweden", progress: 90 },
+                    { name: "Canada", progress: 85 },
+                    { name: "Japan", progress: 88 },
+                    { name: "Singapore", progress: 92 },
+                    { name: "Denmark", progress: 89 },
+                    { name: "Switzerland", progress: 87 }
+                ],
+                statistics: [
+                    { number: "55%", label: "World population lives in urban areas" },
+                    { number: "90%", label: "Urban expansion in developing countries" },
+                    { number: "4M", label: "Slum dwellers in cities (global)" }
+                ],
+                initiatives: [
+                    "Green building codes and urban planning.",
+                    "Development of public transportation networks.",
+                    "Preservation of cultural heritage sites.",
+                    "Promoting urban green spaces and parks."
+                ],
+                essay: {
+                    title: "Goal 11: Sustainable Cities and Communities 🏘️",
+                    content: `
+                        <p class="mb-4">Cities are hubs for ideas, commerce, culture, science, productivity, social development and much more. SDG 11 aims to make cities and human settlements inclusive, safe, resilient, and sustainable, recognizing their critical role in global development.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Safe and Affordable Housing:</b> Ensuring access for all to adequate, safe and affordable housing and basic services and upgrade slums.</li>
+                            <li><b>Sustainable Transport:</b> Providing access to safe, affordable, accessible and sustainable transport systems for all, improving road safety, notably by expanding public transport, with special attention to the needs of those in vulnerable situations, women, children, persons with disabilities and older persons.</li>
+                            <li><b>Inclusive and Sustainable Urbanization:</b> Enhancing inclusive and sustainable urbanization and capacity for participatory, integrated and sustainable human settlement planning and management in all countries.</li>
+                            <li><b>Cultural and Natural Heritage:</b> Strengthening efforts to protect and safeguard the world’s cultural and natural heritage.</li>
+                            <li><b>Reduce Environmental Impact:</b> Reducing the adverse per capita environmental impact of cities, including by paying special attention to air quality and municipal and other waste management.</li>
+                            <li><b>Green and Public Spaces:</b> Providing universal access to safe, inclusive and accessible, green and public spaces, in particular for women and children, older persons and persons with disabilities.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Currently, 55% of the world's population lives in urban areas, a figure expected to rise to 68% by 2050.</li>
+                            <li>Around 90% of urban expansion in developing countries occurs in informal settlements or slums.</li>
+                            <li>Over 4 million people still live in slums globally, lacking adequate housing and basic services.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Rapid urbanization strains infrastructure and resources, leading to challenges like housing shortages, inadequate public transport, pollution, and vulnerability to disasters. Sustainable urban planning and development are crucial.</p>
+                    `
+                },
+                progress: { worldwide: 65 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/cities.jpg",
+                countryDetails: {
+                    "Singapore": {
+                        title: "Singapore's Approach to Sustainable Cities and Communities (SDG 11)",
+                        description: `
+                            <p class="mb-4">Singapore is a leading example of a highly urbanized nation that has successfully integrated sustainability into its urban planning and development, creating a green and livable city.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Long-Term Urban Planning:</b> Comprehensive and integrated master planning for land use, transportation, and green spaces.</li>
+                                <li><b>Green Building Standards:</b> Strict building codes and incentives for green buildings, promoting energy efficiency and sustainable design.</li>
+                                <li><b>Efficient Public Transport:</b> A world-class public transportation system, including an extensive MRT (Mass Rapid Transit) network, reducing reliance on private cars.</li>
+                                <li><b>"City in a Garden" Vision:</b> Extensive greening efforts, including parks, gardens, and vertical greenery, enhancing biodiversity and urban liveability.</li>
+                                <li><b>Smart Nation Initiative:</b> Leveraging technology and data to improve urban services, traffic management, and resource efficiency.</li>
+                                <li><b>Affordable and Quality Housing:</b> High rates of homeownership through public housing programs, ensuring access to quality housing for a majority of the population.</li>
+                            </ul>
+                            <p class="mt-4">Singapore's success is a result of strategic foresight, strong governance, and continuous innovation in urban solutions. Challenges include managing population density and adapting to climate change impacts like rising sea levels.</p>
+                        `
+                    },
+                    "Sweden": {
+                        title: "Sweden's Approach to Sustainable Cities and Communities (SDG 11)",
+                        description: `
+                            <p class="mb-4">Swedish cities are known for their high quality of life, green initiatives, and commitment to sustainable urban development, often serving as models for other European cities.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Integrated Urban Planning:</b> Holistic planning that combines environmental, social, and economic aspects in urban development projects.</li>
+                                <li><b>Green Public Spaces:</b> Extensive network of parks, nature reserves, and green corridors within cities, promoting biodiversity and recreational opportunities.</li>
+                                <li><b>Sustainable Transport:</b> Strong emphasis on cycling infrastructure, efficient public transport, and incentives for electric vehicles.</li>
+                                <li><b>Waste Management:</b> High rates of waste recycling and energy recovery from waste, moving towards a circular economy model.</li>
+                                <li><b>Eco-Districts:</b> Development of innovative eco-districts (e.g., Hammarby Sjöstad in Stockholm) that showcase sustainable living, renewable energy, and waste management.</li>
+                            </ul>
+                            <p class="mt-4">Sweden's approach is characterized by strong public participation, innovative solutions, and a commitment to reducing environmental footprints. Challenges include ensuring affordable housing in growing urban areas and addressing social segregation.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 12,
+                title: "Responsible Consumption and Production",
+                color: "sdg-color-12",
+                description: "Ensuring sustainable consumption and production patterns is about doing more and better with less. It encourages industries, businesses and consumers to recycle and reduce waste, and supports countries to move towards more sustainable patterns of consumption and production.",
+                countries: [
+                    { name: "Germany", progress: 85 },
+                    { name: "Sweden", progress: 90 },
+                    { name: "Netherlands", progress: 88 },
+                    { name: "Finland", progress: 87 },
+                    { name: "Switzerland", progress: 89 },
+                    { name: "France", progress: 82 }
+                ],
+                statistics: [
+                    { number: "97B", label: "Tons of materials extracted (2025)" },
+                    { number: "30%", label: "Reduction in global food waste target" },
+                    { number: "17%", label: "Plastic waste recycled (global)" }
+                ],
+                initiatives: [
+                    "Promoting circular economy models.",
+                    "Eco-labeling and sustainable procurement.",
+                    "Consumer awareness campaigns on sustainable living.",
+                    "Waste reduction and recycling programs."
+                ],
+                essay: {
+                    title: "Goal 12: Responsible Consumption and Production ♻️",
+                    content: `
+                        <p class="mb-4">Sustainable consumption and production is about promoting resource and energy efficiency, sustainable infrastructure, and providing access to basic services, green and decent jobs and a better quality of life for all. SDG 12 aims to ensure sustainable consumption and production patterns, decoupling economic growth from resource depletion.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Sustainable Management of Natural Resources:</b> Achieving the sustainable management and efficient use of natural resources.</li>
+                            <li><b>Waste Reduction:</b> Halving per capita global food waste at the retail and consumer levels and reduce food losses along production and supply chains, including post-harvest losses.</li>
+                            <li><b>Chemicals and Waste Management:</b> Achieving the environmentally sound management of chemicals and all wastes throughout their life cycle, in accordance with agreed international frameworks, and significantly reduce their release to air, water and soil in order to minimize their adverse impacts on human health and the environment.</li>
+                            <li><b>Waste Prevention, Reduction, Recycling and Reuse:</b> Substantially reducing waste generation through prevention, reduction, recycling and reuse.</li>
+                            <li><b>Sustainable Practices:</b> Encouraging companies, especially large and transnational companies, to adopt sustainable practices and to integrate sustainability information into their reporting cycle.</li>
+                            <li><b>Public Procurement:</b> Promoting public procurement practices that are sustainable, in accordance with national policies and priorities.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Around 97 billion tons of materials are projected to be extracted globally by 2025, highlighting unsustainable resource use.</li>
+                            <li>The target is a 30% reduction in global food waste at the retail and consumer levels.</li>
+                            <li>Only about 17% of plastic waste is recycled globally, leading to significant environmental pollution.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Changing entrenched consumption and production patterns, managing waste, and transitioning to circular economies are complex challenges. Consumer awareness and policy frameworks are essential for driving change.</p>
+                    `
+                },
+                progress: { worldwide: 58 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/consumption.jpg",
+                countryDetails: {
+                    "Germany": {
+                        title: "Germany's Approach to Responsible Consumption and Production (SDG 12)",
+                        description: `
+                            <p class="mb-4">Germany is a frontrunner in waste management, recycling, and promoting sustainable consumption patterns, driven by strong environmental policies and public awareness.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Circular Economy Laws:</b> Comprehensive legal framework promoting waste prevention, reuse, and recycling, aiming for a circular economy.</li>
+                                <li><b>High Recycling Rates:</b> One of the highest recycling rates in the world for packaging, paper, and glass, supported by efficient collection systems and public participation.</li>
+                                <li><b>Extended Producer Responsibility (EPR):</b> Producers are held responsible for the entire life cycle of their products, encouraging sustainable design and waste reduction.</li>
+                                <li><b>Eco-Labeling:</b> Promotion of eco-labels (e.g., Blue Angel) to guide consumers towards environmentally friendly products and services.</li>
+                                <li><b>Food Waste Reduction:</b> Initiatives to reduce food waste across the supply chain, from production to consumption.</li>
+                            </ul>
+                            <p class="mt-4">Germany's success is based on a combination of strong regulations, technological innovation, and a culture of environmental responsibility. Challenges include reducing overall resource consumption and addressing the environmental impact of imported goods.</p>
+                        `
+                    },
+                    "Sweden": {
+                        title: "Sweden's Approach to Responsible Consumption and Production (SDG 12)",
+                        description: `
+                            <p class="mb-4">Sweden is a leader in sustainable consumption and production, with a strong focus on waste management, resource efficiency, and promoting a circular economy.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Waste-to-Energy Systems:</b> Advanced waste incineration plants that convert non-recyclable waste into energy, significantly reducing landfill volumes.</li>
+                                <li><b>High Recycling Rates:</b> Very high rates of recycling for various materials, supported by efficient collection and sorting systems.</li>
+                                <li><b>"Pants for a Penny" (Repair Culture):</b> Initiatives and tax breaks to encourage repair and reuse of goods, extending product lifespans.</li>
+                                <li><b>Sustainable Public Procurement:</b> Government and public sector actively prioritize sustainable products and services in their procurement.</li>
+                                <li><b>Consumer Awareness:</b> Campaigns and education to promote conscious consumption and reduce environmental footprints.</li>
+                            </ul>
+                            <p class="mt-4">Sweden's innovative approach to waste and resource management is a key pillar of its sustainability efforts. Challenges include reducing the environmental impact of consumption, especially for imported goods, and further transitioning to a fully circular economy.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 13,
+                title: "Climate Action",
+                color: "sdg-color-13",
+                description: "Taking urgent action to combat climate change and its impacts. This means strengthening resilience and adaptive capacity to climate-related hazards and natural disasters in all countries, integrating climate change measures into national policies, strategies and planning, and improving education and awareness-raising.",
+                countries: [
+                    { name: "Sweden", progress: 90 },
+                    { name: "Costa Rica", progress: 92 },
+                    { name: "Denmark", progress: 88 },
+                    { name: "Morocco", progress: 75 },
+                    { name: "Bhutan", progress: 80 },
+                    { name: "Norway", progress: 89 }
+                ],
+                statistics: [
+                    { number: "1.3°C", label: "Global temperature increase (above pre-industrial)" },
+                    { number: "2010-2019", label: "Decade of warmest temperatures on record" },
+                    { number: "100M+", label: "People face climate-induced poverty by 2030" }
+                ],
+                initiatives: [
+                    "Paris Agreement implementation.",
+                    "Investment in renewable energy and decarbonization.",
+                    "Climate change adaptation strategies (e.g., early warning systems).",
+                    "Carbon pricing and emissions trading schemes."
+                ],
+                essay: {
+                    title: "Goal 13: Climate Action 🌍",
+                    content: `
+                        <p class="mb-4">Climate change is a global challenge that affects everyone, everywhere. SDG 13 aims to take urgent action to combat climate change and its impacts, recognizing the need for both mitigation (reducing emissions) and adaptation (adjusting to impacts).</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Strengthen Resilience:</b> Strengthening resilience and adaptive capacity to climate-related hazards and natural disasters in all countries.</li>
+                            <li><b>Integrate Climate Measures:</b> Integrating climate change measures into national policies, strategies and planning.</li>
+                            <li><b>Education and Awareness:</b> Improving education, awareness-raising and human and institutional capacity on climate change mitigation, adaptation, impact reduction and early warning.</li>
+                            <li><b>Implementation of UNFCCC:</b> Implementing the commitment undertaken by developed-country parties to the United Nations Framework Convention on Climate Change to a goal of mobilizing jointly $100 billion annually by 2020 from all sources to address the needs of developing countries in the context of meaningful mitigation actions and transparency on implementation and fully operationalize the Green Climate Fund through its capitalization as soon as possible.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Global temperatures have increased by approximately 1.3°C above pre-industrial levels, leading to more frequent and intense extreme weather events.</li>
+                            <li>The decade from 2010 to 2019 was the warmest on record, indicating a clear warming trend.</li>
+                            <li>Over 100 million people are projected to face climate-induced poverty by 2030 if current trends continue.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">The scale and urgency of climate action are immense. Challenges include transitioning away from fossil fuels, securing adequate climate finance for developing countries, and building resilience in vulnerable communities.</p>
+                    `
+                },
+                progress: { worldwide: 50 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/cc.jpg",
+                countryDetails: {
+                    "Sweden": {
+                        title: "Sweden's Approach to Climate Action (SDG 13)",
+                        description: `
+                            <p class="mb-4">Sweden is a global leader in climate action, with ambitious targets to become carbon neutral and a strong track record of reducing emissions while maintaining economic growth.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Ambitious Climate Targets:</b> Aiming for net-zero greenhouse gas emissions by 2045 and negative emissions thereafter.</li>
+                                <li><b>Carbon Tax:</b> One of the highest carbon taxes in the world, incentivizing industries and consumers to reduce emissions.</li>
+                                <li><b>Renewable Energy Transition:</b> High share of renewable energy in its energy mix, particularly from hydropower and bioenergy.</li>
+                                <li><b>Green Industry:</b> Promoting green technologies and sustainable industrial practices, fostering innovation in climate solutions.</li>
+                                <li><b>International Climate Leadership:</b> Actively advocating for stronger global climate action and providing climate finance to developing countries.</li>
+                            </ul>
+                            <p class="mt-4">Sweden's comprehensive approach demonstrates that economic prosperity can go hand-in-hand with ambitious climate action. Challenges include decarbonizing hard-to-abate sectors and addressing consumption-based emissions.</p>
+                        `
+                    },
+                    "Costa Rica": {
+                        title: "Costa Rica's Approach to Climate Action (SDG 13)",
+                        description: `
+                            <p class="mb-4">Costa Rica is a global pioneer in environmental protection and climate action, aiming to become one of the first decarbonized countries in the world.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Decarbonization Plan:</b> Ambitious national plan to achieve net-zero emissions by 2050, focusing on transportation, energy, and agriculture.</li>
+                                <li><b>Forest Conservation and Reforestation:</b> Significant efforts in protecting and expanding its forest cover, which acts as a carbon sink.</li>
+                                <li><b>Renewable Energy Dominance:</b> As highlighted in SDG 7, nearly 100% of its electricity comes from renewable sources.</li>
+                                <li><b>Payment for Environmental Services (PES):</b> A unique program that pays landowners for protecting forests and biodiversity, contributing to carbon sequestration.</li>
+                                <li><b>Ecotourism:</b> Promoting sustainable tourism that supports conservation efforts and raises environmental awareness.</li>
+                            </ul>
+                            <p class="mt-4">Costa Rica's commitment to climate action is deeply integrated into its national identity and development model. Challenges include decarbonizing its transportation fleet and adapting to the impacts of climate change on its vulnerable ecosystems.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 14,
+                title: "Life Below Water",
+                color: "sdg-color-14",
+                description: "Conserving and sustainably using the oceans, seas, and marine resources for sustainable development. This involves preventing and significantly reducing marine pollution of all kinds, minimizing ocean acidification, and sustainably managing and protecting marine and coastal ecosystems.",
+                countries: [
+                    { name: "Norway", progress: 85 },
+                    { name: "Iceland", progress: 80 },
+                    { name: "New Zealand", progress: 78 },
+                    { name: "Portugal", progress: 70 },
+                    { name: "Palau", progress: 90 },
+                    { name: "Japan", progress: 65 }
+                ],
+                statistics: [
+                    { number: "8M", label: "Tons of plastic in oceans annually" },
+                    { number: "30%", label: "Marine species vulnerable due to ocean acidification" },
+                    { number: "3B+", label: "People rely on marine biodiversity for livelihoods" }
+                ],
+                initiatives: [
+                    "Creation of marine protected areas (MPAs).",
+                    "Combating illegal, unreported and unregulated (IUU) fishing.",
+                    "Reducing plastic pollution and microplastics.",
+                    "Scientific research on ocean health."
+                ],
+                essay: {
+                    title: "Goal 14: Life Below Water 🐠",
+                    content: `
+                        <p class="mb-4">The world’s oceans – their temperature, chemistry, currents and life – drive global systems that make the Earth habitable for humankind. SDG 14 aims to conserve and sustainably use the oceans, seas, and marine resources for sustainable development, recognizing their vital role in regulating the global climate and supporting biodiversity.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Reduce Marine Pollution:</b> Preventing and significantly reducing marine pollution of all kinds, in particular from land-based activities, including marine debris and nutrient pollution.</li>
+                            <li><b>Protect Marine and Coastal Ecosystems:</b> Sustainably managing and protecting marine and coastal ecosystems to avoid significant adverse impacts, including by strengthening their resilience, and take action for their restoration in order to achieve healthy and productive oceans.</li>
+                            <li><b>Minimize Ocean Acidification:</b> Minimizing and addressing the impacts of ocean acidification, including through enhanced scientific cooperation at all levels.</li>
+                            <li><b>Sustainable Fishing:</b> Effectively regulating harvesting and end overfishing, illegal, unreported and unregulated fishing and destructive fishing practices and implement science-based management plans, in order to restore fish stocks in the shortest time feasible, at least to levels that can produce maximum sustainable yield as determined by their biological characteristics.</li>
+                            <li><b>Conserve Coastal and Marine Areas:</b> Conserving at least 10 per cent of coastal and marine areas, consistent with national and international law and based on the best available scientific information.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>An estimated 8 million tons of plastic enter the oceans annually, severely impacting marine life.</li>
+                            <li>Around 30% of marine species are vulnerable due to ocean acidification, a direct consequence of increased CO2 absorption.</li>
+                            <li>Over 3 billion people worldwide rely on marine biodiversity for their livelihoods, highlighting the economic importance of healthy oceans.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Overfishing, marine pollution (especially plastic), habitat destruction, and climate change impacts like ocean acidification pose severe threats. Effective governance and international cooperation are crucial for ocean conservation.</p>
+                    `
+                },
+                progress: { worldwide: 45 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/oceans.jpg",
+                countryDetails: {
+                    "Palau": {
+                        title: "Palau's Approach to Life Below Water (SDG 14)",
+                        description: `
+                            <p class="mb-4">Palau, a small island nation in the Pacific, is a global leader in marine conservation, recognizing the vital importance of its ocean resources for its economy and culture.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Palau National Marine Sanctuary:</b> Established one of the world's largest fully protected marine sanctuaries, banning all commercial fishing and mining within its Exclusive Economic Zone.</li>
+                                <li><b>Shark Sanctuary:</b> Created the world's first shark sanctuary, protecting sharks from fishing within its waters.</li>
+                                <li><b>"Pristine Paradise. Palau." Initiative:</b> A tourism initiative that emphasizes sustainable tourism and requires visitors to sign a pledge to protect Palau's environment.</li>
+                                <li><b>Combating IUU Fishing:</b> Strong enforcement measures against illegal, unreported, and unregulated fishing.</li>
+                                <li><b>Climate Change Adaptation:</b> Implementing strategies to protect its coral reefs and coastal ecosystems from the impacts of climate change and ocean acidification.</li>
+                            </ul>
+                            <p class="mt-4">Palau's bold conservation efforts demonstrate how a small nation can lead on global environmental issues. Challenges include the ongoing threat of climate change and ensuring sustainable tourism growth.</p>
+                        `
+                    },
+                    "Norway": {
+                        title: "Norway's Approach to Life Below Water (SDG 14)",
+                        description: `
+                            <p class="mb-4">Norway, with its extensive coastline and rich marine resources, is committed to sustainable ocean management, balancing economic activities with environmental protection.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Sustainable Fisheries Management:</b> Implementing strict quotas and regulations to ensure sustainable fish stocks and combat overfishing.</li>
+                                <li><b>Marine Spatial Planning:</b> Developing integrated plans for managing marine areas, balancing different uses like fisheries, aquaculture, and conservation.</li>
+                                <li><b>Combating Marine Pollution:</b> Initiatives to reduce plastic pollution and other forms of marine litter, including participation in international agreements.</li>
+                                <li><b>Ocean Research:</b> Significant investment in marine science and research to better understand ocean ecosystems and inform policy decisions.</li>
+                                <li><b>Blue Economy:</b> Promoting sustainable use of marine resources for economic growth, including responsible aquaculture and marine biotechnology.</li>
+                            </ul>
+                            <p class="mt-4">Norway's approach emphasizes science-based management and international cooperation. Challenges include managing the environmental impact of aquaculture and addressing the effects of climate change on Arctic marine ecosystems.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 15,
+                title: "Life on Land",
+                color: "sdg-color-15",
+                description: "Protecting, restoring, and promoting sustainable use of terrestrial ecosystems, sustainably managing forests, combating desertification, halting and reversing land degradation, and halting biodiversity loss. It aims to conserve mountain ecosystems, take urgent action to end poaching and trafficking of protected species, and introduce measures to prevent the introduction of invasive alien species.",
+                countries: [
+                    { name: "Costa Rica", progress: 90 },
+                    { name: "Finland", progress: 85 },
+                    { name: "Bhutan", progress: 88 },
+                    { name: "Brazil", progress: 60 },
+                    { name: "Canada", progress: 82 },
+                    { name: "Australia", progress: 75 }
+                ],
+                statistics: [
+                    { number: "14M", label: "Hectares of forest lost annually" },
+                    { number: "1M+", label: "Animal and plant species threatened with extinction" },
+                    { number: "30%", label: "Land degraded by erosion (global)" }
+                ],
+                initiatives: [
+                    "Reforestation and afforestation programs.",
+                    "Combating deforestation and land degradation.",
+                    "Protection of endangered species and their habitats.",
+                    "Sustainable forest management practices."
+                ],
+                essay: {
+                    title: "Goal 15: Life on Land 🌳",
+                    content: `
+                        <p class="mb-4">Life on Land focuses on protecting, restoring and promoting sustainable use of terrestrial ecosystems, sustainably managing forests, combating desertification, and halting and reversing land degradation and biodiversity loss. It recognizes the interconnectedness of all life forms and the vital role of healthy ecosystems.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Conserve and Restore Ecosystems:</b> Protecting, restoring and promoting sustainable use of terrestrial and inland freshwater ecosystems and their services, in particular forests, wetlands, mountains and drylands, in line with obligations under international agreements.</li>
+                            <li><b>Sustainable Forest Management:</b> Promoting the implementation of sustainable management of all types of forests, halt deforestation, restore degraded forests and substantially increase afforestation and reforestation globally.</li>
+                            <li><b>Combat Desertification:</b> Combating desertification, restore degraded land and soil, including land affected by desertification, drought and floods, and strive to achieve a land degradation-neutral world.</li>
+                            <li><b>Conserve Biodiversity:</b> Taking urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species.</li>
+                            <li><b>Combat Poaching and Trafficking:</b> Taking urgent action to end poaching and trafficking of protected species of flora and fauna and address both demand and supply of illegal wildlife products.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Approximately 14 million hectares of forest are lost annually, contributing to climate change and biodiversity loss.</li>
+                            <li>Over 1 million animal and plant species are threatened with extinction, many within decades, due to human activities.</li>
+                            <li>Around 30% of the Earth's land is degraded by erosion, impacting agricultural productivity and ecosystems.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Deforestation, land degradation, illegal wildlife trade, and climate change are major threats to terrestrial ecosystems. Sustainable land management, conservation efforts, and combating illegal activities are critical.</p>
+                    `
+                },
+                progress: { worldwide: 55 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/topics_14-forest-original.jpg.jpg",
+                countryDetails: {
+                    "Bhutan": {
+                        title: "Bhutan's Approach to Life on Land (SDG 15)",
+                        description: `
+                            <p class="mb-4">Bhutan is globally unique for its constitutional mandate to maintain at least 60% forest cover and its commitment to Gross National Happiness, which prioritizes environmental conservation.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Carbon Negative Status:</b> Bhutan is one of the few carbon-negative countries in the world, absorbing more CO2 than it emits, largely due to its extensive forest cover.</li>
+                                <li><b>Protected Areas Network:</b> A vast network of national parks and protected areas, connected by biological corridors, safeguarding its rich biodiversity.</li>
+                                <li><b>Sustainable Forest Management:</b> Strict regulations on logging and promotion of sustainable forestry practices.</li>
+                                <li><b>Community Involvement:</b> Engaging local communities in conservation efforts and sustainable resource management.</li>
+                                <li><b>Combating Poaching:</b> Strong enforcement against illegal wildlife trade to protect its endangered species.</li>
+                            </ul>
+                            <p class="mt-4">Bhutan's commitment to environmental protection is deeply ingrained in its national policy and cultural values. Challenges include balancing development needs with conservation goals and adapting to climate change impacts on its ecosystems.</p>
+                        `
+                    },
+                    "Costa Rica": {
+                        title: "Costa Rica's Approach to Life on Land (SDG 15)",
+                        description: `
+                            <p class="mb-4">Costa Rica is a global leader in biodiversity conservation and sustainable land management, known for its extensive national parks and commitment to reforestation.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Payment for Environmental Services (PES):</b> A pioneering program that pays landowners for protecting forests and biodiversity, leading to significant reforestation and forest cover increase.</li>
+                                <li><b>Extensive Protected Areas:</b> A large percentage of its territory is designated as national parks and protected areas, safeguarding its rich biodiversity.</li>
+                                <li><b>Sustainable Tourism:</b> Promoting ecotourism that supports conservation efforts and provides economic incentives for local communities to protect natural resources.</li>
+                                <li><b>Combating Deforestation:</b> Strong legal frameworks and enforcement against illegal logging and land conversion.</li>
+                                <li><b>Biodiversity Research:</b> Investing in scientific research to understand and protect its unique flora and fauna.</li>
+                            </ul>
+                            <p class="mt-4">Costa Rica's success in life on land conservation is a result of progressive policies and a strong national commitment. Challenges include managing agricultural expansion and adapting to the impacts of climate change on its ecosystems.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 16,
+                title: "Peace, Justice, and Strong Institutions",
+                color: "sdg-color-16",
+                description: "Promoting peaceful and inclusive societies for sustainable development, providing access to justice for all, and building effective, accountable, and inclusive institutions at all levels. This includes significantly reducing all forms of violence, promoting the rule of law, and ensuring public access to information.",
+                countries: [
+                    { name: "Iceland", progress: 92 },
+                    { name: "New Zealand", progress: 90 },
+                    { name: "Denmark", progress: 88 },
+                    { name: "Switzerland", progress: 89 },
+                    { name: "Canada", progress: 87 },
+                    { name: "Norway", progress: 91 }
+                ],
+                statistics: [
+                    { number: "1 in 3", label: "Children registered at birth" },
+                    { number: "43%", label: "Increase in civilian deaths in armed conflicts (last decade)" },
+                    { number: "1.2B", label: "People lack legal identity" }
+                ],
+                initiatives: [
+                    "Strengthening rule of law and access to justice.",
+                    "Anti-corruption measures and good governance.",
+                    "Promoting inclusive and participatory decision-making.",
+                    "Peacebuilding and conflict resolution efforts."
+                ],
+                essay: {
+                    title: "Goal 16: Peace, Justice, and Strong Institutions ⚖️",
+                    content: `
+                        <p class="mb-4">Peace, stability, human rights and effective governance, based on the rule of law, are important conduits for sustainable development. SDG 16 aims to promote peaceful and inclusive societies for sustainable development, provide access to justice for all, and build effective, accountable, and inclusive institutions at all levels.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Reduce Violence:</b> Significantly reducing all forms of violence and related death rates everywhere.</li>
+                            <li><b>End Abuse and Exploitation:</b> Ending abuse, exploitation, trafficking and all forms of violence against and torture of children.</li>
+                            <li><b>Promote Rule of Law and Justice:</b> Promoting the rule of law at the national and international levels and ensure equal access to justice for all.</li>
+                            <li><b>Combat Illicit Flows and Corruption:</b> Significantly reducing illicit financial and arms flows, strengthen the recovery and return of stolen assets and combat all forms of organized crime. Substantially reducing corruption and bribery in all their forms.</li>
+                            <li><b>Effective and Accountable Institutions:</b> Developing effective, accountable and transparent institutions at all levels.</li>
+                            <li><b>Inclusive Decision-making:</b> Ensuring responsive, inclusive, participatory and representative decision-making at all levels.</li>
+                            <li><b>Legal Identity:</b> Providing legal identity for all, including birth registration.</li>
+                            <li><b>Public Access to Information:</b> Ensuring public access to information and protect fundamental freedoms, in accordance with national legislation and international agreements.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Globally, only 1 in 3 children under 5 is registered at birth, limiting their access to rights and services.</li>
+                            <li>Civilian deaths in armed conflicts increased by 43% in the last decade, highlighting persistent violence.</li>
+                            <li>Approximately 1.2 billion people lack legal identity, hindering their participation in society and access to justice.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Conflict, violence, corruption, and weak institutions undermine sustainable development. Building trust in institutions, ensuring access to justice for all, and protecting human rights are critical and complex tasks.</p>
+                    `
+                },
+                progress: { worldwide: 68 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/globe.jpg",
+                countryDetails: {
+                    "New Zealand": {
+                        title: "New Zealand's Approach to Peace, Justice, and Strong Institutions (SDG 16)",
+                        description: `
+                            <p class="mb-4">New Zealand is consistently ranked among the world's most peaceful and least corrupt countries, with strong democratic institutions and a commitment to justice for all.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>High Levels of Trust:</b> High public trust in government, police, and judicial institutions.</li>
+                                <li><b>Transparent Governance:</b> Strong emphasis on transparency, accountability, and public participation in decision-making processes.</li>
+                                <li><b>Independent Judiciary:</b> An independent and impartial judicial system that upholds the rule of law.</li>
+                                <li><b>Indigenous Rights:</b> Ongoing efforts to address historical injustices and uphold the rights of Māori, New Zealand's indigenous people.</li>
+                                <li><b>Anti-Corruption Measures:</b> Robust anti-corruption frameworks and a culture of integrity in public service.</li>
+                            </ul>
+                            <p class="mt-4">New Zealand's strong institutions and commitment to justice are foundational to its overall well-being. Challenges include addressing issues of domestic violence and ensuring equitable access to justice for all communities.</p>
+                        `
+                    },
+                    "Canada": {
+                        title: "Canada's Approach to Peace, Justice, and Strong Institutions (SDG 16)",
+                        description: `
+                            <p class="mb-4">Canada is recognized for its stable democratic institutions, respect for human rights, and commitment to a fair and accessible justice system.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Multiculturalism Policy:</b> Official policy of multiculturalism promotes diversity, inclusion, and respect for all cultures.</li>
+                                <li><b>Rule of Law:</b> A strong legal framework and independent judiciary ensure the rule of law and access to justice.</li>
+                                <li><b>Open Government Initiatives:</b> Efforts to increase transparency and accountability in government through open data and citizen engagement.</li>
+                                <li><b>Reconciliation with Indigenous Peoples:</b> Ongoing commitment to reconciliation with Indigenous peoples, including addressing historical injustices and promoting self-determination.</li>
+                                <li><b>International Peacekeeping:</b> Active participation in international peacekeeping missions and promotion of human rights globally.</li>
+                            </ul>
+                            <p class="mt-4">Canada's pluralistic society and democratic values underpin its efforts towards peace and justice. Challenges include addressing systemic inequalities and ensuring equitable access to justice for marginalized communities.</p>
+                        `
+                    }
+                }
+            },
+            {
+                id: 17,
+                title: "Partnerships for the Goals",
+                color: "sdg-color-17",
+                description: "Strengthening the means of implementation and revitalizing the global partnership for sustainable development. This involves enhancing global macroeconomic stability, increasing financial and technological capacity building for developing countries, and promoting multi-stakeholder partnerships.",
+                countries: [
+                    { name: "Germany", progress: 85 },
+                    { name: "Norway", progress: 90 },
+                    { name: "Sweden", progress: 88 },
+                    { name: "Netherlands", progress: 87 },
+                    { name: "Japan", progress: 80 },
+                    { name: "United Kingdom", progress: 82 }
+                ],
+                statistics: [
+                    { number: "$157B", label: "Official Development Assistance (2025)" },
+                    { number: "25%", label: "Internet penetration in LDCs" },
+                    { number: "60+", label: "Bilateral tax treaties to reduce illicit financial flows" }
+                ],
+                initiatives: [
+                    "North-South, South-South, and triangular cooperation.",
+                    "Technology transfer and capacity building.",
+                    "Mobilizing financial resources for development.",
+                    "Multi-stakeholder partnerships involving governments, civil society, and the private sector."
+                ],
+                essay: {
+                    title: "Goal 17: Partnerships for the Goals",
+                    content: `
+                        <p class="mb-4">A successful sustainable development agenda requires partnerships between governments, the private sector and civil society. SDG 17 aims to strengthen the means of implementation and revitalize the global partnership for sustainable development, recognizing that global challenges requires global solutions.</p>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Key Aspects:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li><b>Finance:</b> Strengthening domestic resource mobilization, including through international support to developing countries, to improve domestic capacity for tax and other revenue collection. Mobilizing additional financial resources for developing countries from multiple sources. Assisting developing countries in attaining long-term debt sustainability.</li>
+                            <li><b>Technology:</b> Enhancing North-South, South-South and regional and international cooperation on and access to science, technology and innovation and enhance knowledge sharing on mutually agreed terms, including through improved coordination among existing mechanisms. Promoting the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed.</li>
+                            <li><b>Capacity-building:</b> Enhancing international support for implementing effective and targeted capacity-building in developing countries to support national plans for implementing all the Sustainable Development Goals, including through North-South, South-South and triangular cooperation.</li>
+                            <li><b>Trade:</b> Promoting a universal, rules-based, open, non-discriminatory and equitable multilateral trading system under the World Trade Organization. Significantly increasing the exports of developing countries, in particular with a view to doubling the least developed countries’ share of global exports by 2020.</li>
+                            <li><b>Systemic Issues:</b> Enhancing global macroeconomic stability. Enhancing policy coherence for sustainable development. Respecting each country’s policy space and leadership to establish and implement policies for poverty eradication and sustainable development.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Statistics & Progress:</h4>
+                        <ul class="list-disc list-inside ml-4 mb-4">
+                            <li>Official Development Assistance (ODA) is projected to be around $157 billion by 2025, but more is needed to meet development needs.</li>
+                            <li>Internet penetration in Least Developed Countries (LDCs) remains low at around 25%, highlighting the digital divide.</li>
+                            <li>Over 60 bilateral tax treaties have been established to reduce illicit financial flows, but more action is required.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold mb-2 mt-4">Challenges:</h4>
+                        <p class="mb-4">Challenges include insufficient development finance, trade barriers, limited technology transfer, and a lack of data for effective monitoring. Strengthening global partnerships requires renewed political will and commitment from all stakeholders.</p>
+                    `
+                },
+                progress: { worldwide: 70 },
+                imageUrl: "https://sdgs.un.org/sites/default/files/2020-07/partnerships.jpg",
+                countryDetails: {
+                    "Norway": {
+                        title: "Norway's Approach to Partnerships for the Goals (SDG 17)",
+                        description: `
+                            <p class="mb-4">Norway is a strong advocate for multilateralism and global cooperation, consistently exceeding the UN target for Official Development Assistance (ODA) and promoting effective partnerships for sustainable development.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>High ODA Contributions:</b> Consistently ranks among the top donors globally, providing significant financial support to developing countries.</li>
+                                <li><b>Focus on Key Development Areas:</b> Prioritizes partnerships in areas such as health, education, gender equality, and climate action.</li>
+                                <li><b>Multilateral Engagement:</b> Strong support for the United Nations and other multilateral organizations as platforms for global cooperation.</li>
+                                <li><b>Technology Transfer:</b> Promoting the transfer of sustainable technologies and knowledge sharing with developing nations.</li>
+                                <li><b>Private Sector Engagement:</b> Encouraging Norwegian businesses to engage in sustainable investments and partnerships in developing countries.</li>
+                            </ul>
+                            <p class="mt-4">Norway's commitment to global partnerships is a cornerstone of its foreign policy, aiming to foster a more just and sustainable world. Challenges include ensuring the effectiveness and impact of aid and adapting to evolving global development needs.</p>
+                        `
+                    },
+                    "Germany": {
+                        title: "Germany's Approach to Partnerships for the Goals (SDG 17)",
+                        description: `
+                            <p class="mb-4">Germany is a major global player in development cooperation and a strong proponent of multilateral partnerships to achieve the SDGs.</p>
+                            <h5 class="text-lg font-semibold mb-2">Key Strategies and Achievements:</h5>
+                            <ul class="list-disc list-inside ml-4 mb-4">
+                                <li><b>Significant ODA Provider:</b> One of the largest providers of Official Development Assistance (ODA) globally, supporting a wide range of development projects.</li>
+                                <li><b>Focus on Climate Finance:</b> A leading contributor to international climate finance, supporting developing countries in their climate mitigation and adaptation efforts.</li>
+                                <li><b>Multi-stakeholder Partnerships:</b> Actively engaging with civil society, the private sector, and research institutions to foster innovative development solutions.</li>
+                                <li><b>Capacity Building:</b> Providing technical assistance and capacity-building programs to strengthen institutions in partner countries.</li>
+                                <li><b>Trade and Investment:</b> Promoting fair trade practices and sustainable investments that contribute to economic growth in developing nations.</li>
+                            </ul>
+                            <p class="mt-4">Germany's commitment to global partnerships is essential for mobilizing resources and expertise to address complex global challenges. Challenges include ensuring coherence across different policy areas and maximizing the impact of development cooperation.</p>
+                        `
+                    }
+                }
+            }
+        ];
+        
+        const countryCodeMap = {
+            "China": "cn", "Vietnam": "vn", "Rwanda": "rw", "South Korea": "kr", "Chile": "cl", "India": "in",
+            "Brazil": "br", "Thailand": "th", "Ghana": "gh", "Ethiopia": "et", "Malawi": "mw",
+            "Japan": "jp", "Switzerland": "ch", "Canada": "ca", "Norway": "no", "Sweden": "se", "Australia": "au",
+            "Finland": "fi", "Estonia": "ee", "Singapore": "sg", "Netherlands": "nl",
+            "Iceland": "is", "New Zealand": "nz", "Denmark": "dk",
+            "Germany": "de", "Israel": "il",
+            "Costa Rica": "cr", "Portugal": "pt",
+            "USA": "us", "Slovenia": "si", "Belgium": "be",
+            "Bhutan": "bt", "Morocco": "ma",
+            "Palau": "pw", "France": "fr", "United Kingdom": "gb",
+        };
+
+        const sdgNav = document.getElementById('sdg-nav');
+        const contentDisplay = document.getElementById('content-display');
+        const countryDetailsModal = document.getElementById('country-details-modal');
+        const modalCountryName = document.getElementById('modal-country-name');
+        const modalCountryFlag = document.getElementById('modal-country-flag');
+        const modalSdgTitle = document.getElementById('modal-sdg-title');
+        const modalCountryInfo = document.getElementById('modal-country-info');
+
+        function getCountryFlagUrl(countryName) {
+            const countryCode = countryCodeMap[countryName];
+            if (countryCode) {
+                return `https://flagcdn.com/w40/${countryCode}.png`;
+            }
+            return `https://placehold.co/40x30/cccccc/333333?text=Flag`;
+        }
+
+        function showCountryDetailsModal(sdgId, countryName) {
+            const sdg = sdgData.find(s => s.id === sdgId);
+            if (sdg && sdg.countryDetails && sdg.countryDetails[countryName]) {
+                const details = sdg.countryDetails[countryName];
+                modalCountryName.querySelector('span').textContent = countryName;
+                modalCountryFlag.src = getCountryFlagUrl(countryName);
+                modalCountryFlag.alt = `Flag of ${countryName}`;
+                modalSdgTitle.textContent = `${sdg.title} (${sdg.id})`;
+                modalCountryInfo.innerHTML = details.description;
+
+                countryDetailsModal.classList.remove('hidden');
+                // Use a timeout to allow the display property to apply before starting transition
+                setTimeout(() => {
+                    countryDetailsModal.classList.add('show');
+                }, 10); // Small delay
+            } else {
+                console.error(`Details for ${countryName} under SDG ${sdgId} not found.`);
+                // Optionally, display a generic message in the modal if details are missing
+                modalCountryName.querySelector('span').textContent = countryName;
+                modalCountryFlag.src = getCountryFlagUrl(countryName);
+                modalCountryFlag.alt = `Flag of ${countryName}`;
+                modalSdgTitle.textContent = `${sdg ? sdg.title : 'Unknown SDG'} (${sdgId})`;
+                modalCountryInfo.innerHTML = `<p class="text-red-400">Detailed information for ${countryName} on this goal is not yet available.</p>`;
+                countryDetailsModal.classList.remove('hidden');
+                setTimeout(() => {
+                    countryDetailsModal.classList.add('show');
+                }, 10);
+            }
+        }
+
+        function hideCountryDetailsModal() {
+            countryDetailsModal.classList.remove('show');
+            // Use a timeout to allow the transition to complete before hiding
+            setTimeout(() => {
+                countryDetailsModal.classList.add('hidden');
+            }, 300); // Match transition duration
+        }
+
+        function displaySDG(sdgId) {
+            let contentHTML = '';
+            if (sdgId === 'home') {
+                contentHTML = `
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">The 2030 Agenda for Sustainable Development</h2>
+                    <p class="text-lg leading-relaxed mb-6">
+                        The Sustainable Development Goals (SDGs), also known as the Global Goals, were adopted by the United Nations in 2015 as a universal call to action to end poverty, protect the planet, and ensure that all people enjoy peace and prosperity by 2030.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6">
+                        The 17 SDGs are integrated—they recognize that action in one area will affect outcomes in others, and that development must balance social, economic and environmental sustainability. The Goals are a blueprint to achieve a better and more sustainable future for all. They address the global challenges we face, including those related to poverty, hunger, health, education, climate change, gender equality, water, sanitation, energy, environment, and social justice.
+                    </p>
+                    <div class="mb-8 p-4 bg-gray-100 rounded-lg shadow-inner">
+                        <img src="https://images.pexels.com/photos/1098515/pexels-photo-1098515.jpeg" alt="World Map illustrating global reach of SDGs" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        ${sdgData.map(sdg => `
+                            <div class="p-4 rounded-lg shadow-md flex items-center space-x-3 cursor-pointer ${sdg.color} text-white hover:opacity-90 transition-opacity duration-200" data-sdg-id="${sdg.id}">
+                                <div class="text-4xl font-bold">${sdg.id}</div>
+                                <h3 class="text-xl font-semibold">${sdg.title}</h3>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (sdgId === 'about-sdg') {
+                const totalProgress = sdgData.reduce((sum, sdg) => sum + sdg.progress.worldwide, 0);
+                const averageProgress = (totalProgress / sdgData.length).toFixed(1);
+
+                contentHTML = `
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">📖 About the Sustainable Development Goals</h2>
+                    <p class="text-lg leading-relaxed mb-6">The 17 Sustainable Development Goals (SDGs) are a universal call to action to end poverty, protect the planet, and ensure that all people enjoy peace and prosperity. They are interconnected and address global challenges, offering a roadmap for a sustainable future.</p>
+                    
+                    <div class="mb-8 p-6 rounded-lg shadow-md progress-section-normal">
+                        <h3 class="text-2xl font-bold mb-4">Overall Worldwide Progress:</h3>
+                        <div class="progress-container h-8">
+                            <div class="progress-bar progress-bar-normal" style="width: ${averageProgress}%;">
+                                ${averageProgress}% Implemented Globally
+                            </div>
+                        </div>
+                        <p class="text-md mt-4">This represents the average progress across all 17 Sustainable Development Goals.</p>
+                    </div>
+
+                    <div class="space-y-10">
+                        ${sdgData.map(sdg => `
+                            <div class="p-6 rounded-lg shadow-md ${sdg.color.replace('sdg-color', 'bg')} bg-opacity-10 text-gray-800">
+                                <h3 class="text-2xl font-bold mb-4 ${sdg.color.replace('sdg-color', 'sdg-text-color')}">${sdg.essay.title}</h3>
+                                <div class="mb-4">
+                                    <h4 class="text-lg font-semibold mb-1 text-gray-800">Worldwide Implementation:</h4>
+                                    <div class="progress-container">
+                                        <div class="progress-bar ${sdg.color}" style="width: ${sdg.progress.worldwide}%;">
+                                            ${sdg.progress.worldwide}%
+                                        </div>
+                                    </div>
+                                </div>
+                                ${sdg.essay.content}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else if (sdgId === 'images') {
+                contentHTML = `
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">🖼️ SDG Images</h2>
+                    <p class="text-lg leading-relaxed mb-6">Explore images depicting people implementing each Sustainable Development Goal in a top country. These images provide a visual representation of progress and action.</p>
+                    <div class="space-y-10">
+                        ${sdgData.map(sdg => {
+                            // Find the country with the highest progress for this SDG
+                            const topCountry = sdg.countries.reduce((prev, current) => (prev.progress > current.progress) ? prev : current);
+                            return `
+                                <div class="p-6 rounded-lg shadow-md ${sdg.color.replace('sdg-color', 'bg')} bg-opacity-10 text-gray-800">
+                                    <h3 class="text-2xl font-bold mb-2 ${sdg.color.replace('sdg-color', 'sdg-text-color')}">${sdg.id}. ${sdg.title}</h3>
+                                    <p class="text-md mb-3">${sdg.description.substring(0, 150)}...</p>
+                                    <p class="text-lg font-semibold text-gray-700 mb-4">Top Country for Effective Implementation: <span class="sdg-text-color-${sdg.id}">${topCountry.name}</span></p>
+                                    <div class="image-display-container">
+                                        <img src="${sdg.imageUrl}" alt="Image related to SDG ${sdg.id} in ${topCountry.name}">
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
+            else if (sdgId === 'sources') {
+                contentHTML = `
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">📚 Sources for Sustainable Development Goals</h2>
+                    <div class="space-y-6">
+                        ${sdgData.map(sdg => `
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">${sdg.id}: ${sdg.title}</h3>
+                                <p class="text-gray-700">${sdg.description}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                const sdg = sdgData.find(s => s.id === sdgId);
+                if (sdg) {
+                    contentHTML = `
+                        <div class="sdg-title-banner ${sdg.color}">
+                            ${sdg.id}. ${sdg.title}
+                        </div>
+                        <div class="mb-6 p-4 bg-gray-100 rounded-lg shadow-inner">
+                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Worldwide Progress:</h3>
+                            <div class="progress-container">
+                                <div class="progress-bar ${sdg.color}" style="width: ${sdg.progress.worldwide}%;">
+                                    ${sdg.progress.worldwide}%
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-lg leading-relaxed mb-6 text-gray-700">${sdg.description}</p>
+
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Top Countries for Effective Implementation:</h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+                            ${sdg.countries.map(country => `
+                                <div class="country-card ${sdg.countryDetails && sdg.countryDetails[country.name] ? 'cursor-pointer hover:bg-gray-700' : ''}"
+                                     ${sdg.countryDetails && sdg.countryDetails[country.name] ? `onclick="showCountryDetailsModal(${sdg.id}, '${country.name}')"` : ''}>
+                                    <div class="country-info">
+                                        <img src="${getCountryFlagUrl(country.name)}" alt="Flag of ${country.name}" class="country-flag mr-4">
+                                        <span class="text-lg text-gray-800 font-medium">${country.name}</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar ${sdg.color}" style="width: ${country.progress}%;">
+                                            ${country.progress}% Implemented
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Key Statistics:</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                            ${sdg.statistics.map(stat => `
+                                <div class="stat-box">
+                                    <div class="stat-number">${stat.number}</div>
+                                    <div class="stat-label">${stat.label}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <h3 class="text-2xl font-semibold mb-3 text-gray-800">Key Initiatives/Projects:</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                            ${sdg.initiatives.map(initiative => `
+                                <li class="text-lg">${initiative}</li>
+                            `).join('')}
+                        </ul>
+                    `;
+                } else {
+                    contentHTML = '<p class="text-red-500">SDG not found.</p>';
+                }
+            }
+            contentDisplay.innerHTML = contentHTML;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (sdgId === 'home') {
+                document.querySelectorAll('[data-sdg-id]').forEach(card => {
+                    card.addEventListener('click', (event) => {
+                        const clickedSdgId = parseInt(event.currentTarget.dataset.sdgId);
+                        displaySDG(clickedSdgId);
+                        document.querySelectorAll('#sdg-nav a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        document.querySelector(`#sdg-nav a[data-sdg="${clickedSdgId}"]`).classList.add('active');
+                    });
+                });
+            }
+        }
+
+        sdgData.forEach(sdg => {
+            const li = document.createElement('li');
+            li.className = 'mb-2';
+            li.innerHTML = `
+                <a href="#" data-sdg="${sdg.id}" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200 text-white flex items-center">
+                    <span class="sdg-sidebar-number ${sdg.color}">${sdg.id}</span>
+                    <span class="font-medium">${sdg.title}</span>
+                </a>
+            `;
+            sdgNav.appendChild(li);
+        });
+
+        const aboutSdgLi = document.createElement('li');
+        aboutSdgLi.className = 'mb-2';
+        aboutSdgLi.innerHTML = `
+            <a href="#" data-sdg="about-sdg" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200 text-white flex items-center">
+                <span class="sdg-sidebar-number bg-green-500">📖</span>
+                <span class="font-medium">About SDG</span>
+            </a>
+        `;
+        sdgNav.insertBefore(aboutSdgLi, sdgNav.children[1]);
+
+        const imagesLi = document.createElement('li');
+        imagesLi.className = 'mb-2';
+        imagesLi.innerHTML = `
+            <a href="#" data-sdg="images" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200 text-white flex items-center">
+                <span class="sdg-sidebar-number bg-red-500">🖼️</span>
+                <span class="font-medium">Images</span>
+            </a>
+        `;
+        sdgNav.appendChild(imagesLi);
+
+        const sourcesLi = document.createElement('li');
+        sourcesLi.className = 'mb-2';
+        sourcesLi.innerHTML = `
+            <a href="#" data-sdg="sources" class="block p-3 rounded-md hover:bg-gray-700 transition-colors duration-200 text-white flex items-center">
+                <span class="sdg-sidebar-number bg-purple-500">📚</span>
+                <span class="font-medium">Sources</span>
+            </a>
+        `;
+        sdgNav.appendChild(sourcesLi);
+
+        sdgNav.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = event.target.closest('a');
+            if (target) {
+                const sdgId = target.dataset.sdg;
+                if (sdgId) {
+                    displaySDG(sdgId === 'home' ? 'home' : (sdgId === 'sources' ? 'sources' : (sdgId === 'about-sdg' ? 'about-sdg' : (sdgId === 'images' ? 'images' : parseInt(sdgId)))));
+                    
+                    document.querySelectorAll('#sdg-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    target.classList.add('active');
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displaySDG('home');
+            document.querySelector('#sdg-nav a[data-sdg="home"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
